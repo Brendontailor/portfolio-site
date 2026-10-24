@@ -24,10 +24,12 @@ export function Hero() {
           </h1>
 
           <p className="hero-lede">
-            Sou <strong>Brendon Tailor</strong>, desenvolvedor full-stack e
-            co-fundador da <strong>Monky Soluções</strong>. Construo SaaS,
-            sistemas sob medida e produtos digitais para operações que não
-            podem parar.
+            <strong>Brendon Tailor</strong> — desenvolvedor full-stack que entrega sistemas
+            completos: do modelo de dados à interface, da arquitetura à operação.
+            <br />
+            Seis cases reais comprovam: SaaS multi-tenant, plataformas white-label,
+            PDV com estoque e financeiro, PWA offline com mapas, conciliação de bases
+            e e-commerce editorial.
           </p>
 
           <div className="hero-actions">

@@ -11,7 +11,7 @@ export function SiteFooter() {
           <BrandMark />
           <div>
             <strong>Brendon Tailor</strong>
-            <span>Full-stack developer · Monky Soluções</span>
+            <span>Full-stack developer</span>
           </div>
         </div>
 

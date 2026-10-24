@@ -40,76 +40,30 @@ export function AboutSection() {
             </div>
             <div className="about-portrait-bottom">
               <span>Full-stack developer</span>
-              <span>Monky Soluções</span>
+              <span>Brasil · remoto</span>
             </div>
           </Reveal>
 
           <Reveal className="about-bio" delay={110}>
             <p className="about-lede">
-              Sou Brendon Tailor, desenvolvedor full-stack e co-fundador da
-              Monky Soluções. Gosto de problemas que começam fora da tela: uma
-              operação que trava, uma planilha que não fecha, um processo que só
-              existe na cabeça de quem faz.
+              Desenvolvo sistemas full-stack há anos — do zero à operação real.
+              Minha especialidade: transformar operações caóticas em software que
+              roda sem supervisão constante.
             </p>
             <p>
-              Meu trabalho é traduzir isso em sistema — com regra no lugar
-              certo, dados consistentes e uma interface que não exige manual.
-              Já coloquei uma loja real em operação, estou construindo uma
-              plataforma multi-tenant e mantenho um laboratório de algoritmos e
-              experimentos.
+              Cada case abaixo prova um ângulo diferente:
             </p>
-
-            <div className="about-principles">
-              <div className="principle">
-                <span>01</span>
-                <div>
-                  <strong>Entender a operação antes do código.</strong>
-                  <p>
-                    O melhor sistema é o que resolve o problema certo, não o que
-                    usa a stack da moda.
-                  </p>
-                </div>
-              </div>
-              <div className="principle">
-                <span>02</span>
-                <div>
-                  <strong>Colocar a regra no lugar certo.</strong>
-                  <p>
-                    Preço, permissão e validação não podem depender da boa
-                    vontade do navegador.
-                  </p>
-                </div>
-              </div>
-              <div className="principle">
-                <span>03</span>
-                <div>
-                  <strong>Entregar o que dá para manter.</strong>
-                  <p>
-                    Código legível, decisão documentada e uma solução que a
-                    próxima pessoa consegue evoluir.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="about-stack" aria-label="Tecnologias do dia a dia">
-              <span>TypeScript</span>
-              <span>React</span>
-              <span>Next.js</span>
-              <span>Node.js</span>
-              <span>Express</span>
-              <span>Prisma</span>
-              <span>PostgreSQL</span>
-              <span>Tailwind</span>
-              <span>Docker</span>
-              <span>Git</span>
-            </div>
-
-            <div className="about-now">
-              <span className="tag">Agora: Monky Food</span>
-              <span className="tag">Estudando: arquitetura &amp; IA aplicada</span>
-              <span className="tag">Fora da tela: games e café</span>
-            </div>
+            <ul className="proof-list">
+              <li><strong>Sah Açaí & Cia</strong> — loja real pedindo pelo WhatsApp; backend valida preço, estoque e entrega link só depois de gravar o pedido no PostgreSQL.</li>
+              <li><strong>Monky Food</strong> — plataforma white-label multi-tenant: uma base, isolamento por <code>empresaId</code>, vitrine resolve pelo domínio, painel pela sessão.</li>
+              <li><strong>Monky Tech</strong> — PDV, estoque, compras, financeiro e auditoria multiempresa com wrapper Android pro balcão.</li>
+              <li><strong>RoutePilot</strong> — PWA offline com 120k endereços locais, busca fuzzy, regiões por polígono, rota com revisão humana e impressão A4.</li>
+              <li><strong>PortCont</strong> — conciliação de bases: PDF, XLSX, CSV entram no mesmo pipeline; fuzzy matching separa o certo do &ldquo;parecido&rdquo; pra revisão humana.</li>
+              <li><strong>Dropzone</strong> — e-commerce editorial com catálogo, carrinho, favoritos, auth, admin, avaliações, WhatsApp e módulos de IA (colaboração com Leonardo Rosler).</li>
+            </ul>
+            <p>
+              Stack do dia a dia: TypeScript, React, Next.js, Node.js, Express, Prisma, PostgreSQL, Tailwind, Docker, Git.
+            </p>
           </Reveal>
         </div>
       </div>

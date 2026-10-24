@@ -2,14 +2,14 @@ export const site = {
   name: "Brendon Tailor",
   firstName: "Brendon",
   role: "Desenvolvedor full-stack",
-  company: "Monky Soluções",
+  company: "Brendon Tailor",
   email: "brendontailor040@gmail.com",
   github: "https://github.com/Brendontailor",
   location: "Brasil · remoto",
   availability: "Disponível para novos projetos",
   url: "https://brendontailor.vercel.app",
   description:
-    "Portfólio de Brendon Tailor, desenvolvedor full-stack e co-fundador da Monky Soluções. SaaS, sistemas sob medida e produtos digitais para operações reais.",
+    "Portfólio de Brendon Tailor, desenvolvedor full-stack. SaaS, sistemas sob medida e produtos digitais para operações reais.",
   nav: [
     { label: "Cases", href: "/#cases" },
     { label: "Conhecimento", href: "/#conhecimento" },

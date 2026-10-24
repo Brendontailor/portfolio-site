@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "Node.js",
     "TypeScript",
     "PostgreSQL",
-    "Monky Soluções",
+    "Portfólio",
   ],
   openGraph: {
     type: "website",
