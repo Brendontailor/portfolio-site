@@ -966,9 +966,10 @@ ol {
 }
 
 .manifesto-highlight {
-  padding-inline: 0.06em;
   color: var(--accent-ink);
   background-color: var(--accent);
+  padding-inline: 0.08em;
+  border-radius: 2px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }

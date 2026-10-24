@@ -27,14 +27,13 @@ export function Hero() {
             <strong>Brendon Tailor</strong> — desenvolvedor full-stack que entrega sistemas
             completos: do modelo de dados à interface, da arquitetura à operação.
             <br />
-            Seis cases reais comprovam: SaaS multi-tenant, plataformas white-label,
-            PDV com estoque e financeiro, PWA offline com mapas, conciliação de bases
-            e e-commerce editorial.
+            Cinco cases reais comprovam: SaaS multi-tenant, plataformas white-label,
+            PWA offline com mapas, conciliação de bases e e-commerce editorial.
           </p>
 
           <div className="hero-actions">
             <a href="#cases" className="btn btn-primary">
-              Ver os 6 cases
+              Ver os 5 cases
               <ArrowUpRight size={16} />
             </a>
             <a href="#contato" className="btn btn-ghost">

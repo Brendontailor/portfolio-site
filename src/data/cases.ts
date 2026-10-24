@@ -237,98 +237,8 @@ export const cases: CaseStudy[] = [
     statusNote: "Base multi-tenant em evolução. Código privado.",
   },
   {
-    slug: "monky-tech",
-    index: "03",
-    title: "Monky Tech",
-    kicker: "Gestão para eletrônicos e capinhas",
-    type: "Produto próprio",
-    status: "Em evolução",
-    year: "2026",
-    role: "Produto & engenharia",
-    tags: ["SaaS", "PDV", "Estoque", "Financeiro"],
-    summary:
-      "PDV, estoque, compras, financeiro, usuários e auditoria em um SaaS multiempresa para lojas de eletrônicos.",
-    cover: "/images/case-monky-tech.webp",
-    coverAlt:
-      "Tela de acesso do sistema de gestão Monky Tech, com identidade em transição",
-    context:
-      "Lojas de eletrônicos, acessórios e capinhas costumam controlar venda, estoque, compras e financeiro em planilhas separadas. O objetivo foi reunir a operação do balcão em um sistema multiempresa, com controle de acesso e histórico.",
-    problem:
-      "O balcão precisa vender rápido, mas o dono precisa enxergar estoque, compras, despesas, contas e permissões. Cada empresa tem seu próprio conjunto de dados e não pode acessar o do outro.",
-    solution:
-      "O Monky Tech reúne PDV, produtos, variantes, códigos de barras, estoque, compras, despesas, financeiro, relatórios, usuários e auditoria. A mesma aplicação atende várias empresas, com sessões e permissões separadas. O hub administrativo concentra a visão da plataforma, o modo suporte e a gestão de planos.",
-    architecture: {
-      summary:
-        "As vendas do balcão se conectam ao estoque e à gestão financeira, com acesso separado por empresa e uma camada de operação da plataforma.",
-      modules: [
-        {
-          name: "PDV e catálogo",
-          responsibility:
-            "Registrar vendas usando produtos, variantes e códigos de barras.",
-        },
-        {
-          name: "Estoque e compras",
-          responsibility:
-            "Organizar disponibilidade de produtos e o fluxo de reposição da loja.",
-        },
-        {
-          name: "Financeiro e relatórios",
-          responsibility:
-            "Reunir despesas, contas e visões gerenciais da operação.",
-        },
-        {
-          name: "Acesso e auditoria",
-          responsibility:
-            "Separar empresas e permissões, mantendo histórico de ações relevantes.",
-        },
-      ],
-    },
-    decisions: [
-      {
-        title: "Venda vinculada ao funcionário",
-        text: "O PDV usa PIN para identificar quem vendeu. A operação ganha responsabilidade e histórico.",
-      },
-      {
-        title: "Sessão web e sessão nativa",
-        text: "Cookie HttpOnly no navegador e sessão própria no wrapper Android, sem misturar os modelos.",
-      },
-      {
-        title: "Auditoria e modo suporte",
-        text: "Ações sensíveis deixam rastro; o suporte entra com escopo controlado.",
-      },
-      {
-        title: "Multiempresa de verdade",
-        text: "Dados, permissões e planos separados por empresa, com um hub central para a plataforma.",
-      },
-    ],
-    results: [
-      "PDV, estoque, compras, financeiro e auditoria no mesmo sistema",
-      "Multiempresa com permissões separadas",
-      "Wrapper Android para o balcão",
-      "Modo suporte e hub administrativo",
-    ],
-    stack: [
-      { label: "Frontend", items: ["React", "Vite"] },
-      {
-        label: "Backend",
-        items: ["Node.js", "Express", "Prisma", "Zod"],
-      },
-      { label: "Banco", items: ["PostgreSQL"] },
-      {
-        label: "Autenticação",
-        items: ["Cookie HttpOnly", "Sessão nativa", "bcrypt"],
-      },
-      {
-        label: "Outros",
-        items: ["Nodemailer", "PIX", "Empacotamento Android"],
-      },
-    ],
-    statusNote:
-      "Produto privado em evolução. A identidade visual está em transição de Orakyn para Monky Tech; o deploy legado ainda pode exibir o nome anterior.",
-  },
-  {
     slug: "routepilot",
-    index: "04",
+    index: "03",
     title: "RoutePilot",
     kicker: "Mapa operacional e planejamento de visitas",
     type: "Produto próprio",
@@ -438,7 +348,7 @@ export const cases: CaseStudy[] = [
   },
   {
     slug: "portcont",
-    index: "05",
+    index: "04",
     title: "PortCont",
     kicker: "Comparação inteligente de bases",
     type: "Produto próprio",
@@ -536,7 +446,7 @@ export const cases: CaseStudy[] = [
   },
   {
     slug: "dropzone",
-    index: "06",
+    index: "05",
     title: "Dropzone",
     kicker: "E-commerce de streetwear",
     type: "Colaboração",
