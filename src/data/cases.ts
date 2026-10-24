@@ -533,12 +533,6 @@ export const cases: CaseStudy[] = [
         aspect: "16 / 9",
       },
       {
-        src: "/images/dropzone-cart.webp",
-        alt: "Carrinho e favoritos da Dropzone",
-        caption: "Experiência de compra: carrinho lateral, favoritos persistentes e checkout.",
-        aspect: "16 / 9",
-      },
-      {
         src: "/images/dropzone-auth.webp",
         alt: "Login e conta do cliente Dropzone",
         caption: "Autenticação com JWT, recuperação de senha e área do cliente.",
