@@ -527,16 +527,22 @@ export const cases: CaseStudy[] = [
     ],
     gallery: [
       {
-        src: "/images/dropzone-look-01.webp",
-        alt: "Look real da coleção Dropzone",
-        caption: "Look editorial da coleção real da marca.",
-        aspect: "3 / 4",
+        src: "/images/dropzone-admin.webp",
+        alt: "Painel administrativo da Dropzone",
+        caption: "Área administrativa: gestão de produtos, pedidos, usuários e relatórios.",
+        aspect: "16 / 9",
       },
       {
-        src: "/images/dropzone-look-03.webp",
-        alt: "Look real da coleção Dropzone",
-        caption: "Look editorial da coleção real da marca.",
-        aspect: "3 / 4",
+        src: "/images/dropzone-cart.webp",
+        alt: "Carrinho e favoritos da Dropzone",
+        caption: "Experiência de compra: carrinho lateral, favoritos persistentes e checkout.",
+        aspect: "16 / 9",
+      },
+      {
+        src: "/images/dropzone-auth.webp",
+        alt: "Login e conta do cliente Dropzone",
+        caption: "Autenticação com JWT, recuperação de senha e área do cliente.",
+        aspect: "16 / 9",
       },
     ],
     links: [
