@@ -24,7 +24,7 @@ export function Manifesto() {
             Não é sobre saber tudo. É sobre aprender rápido, testar, corrigir e
             entregar algo que funcione. O resto é consequência.
           </p>
-          <span className="manifesto-signature">— Brendon Tailor</span>
+          <span className="manifesto-signature">Brendon Tailor</span>
         </Reveal>
       </div>
     </section>

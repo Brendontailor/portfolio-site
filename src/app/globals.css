@@ -936,9 +936,11 @@ ol {
 }
 
 .manifesto-grid {
+  max-width: none;
+  padding-inline: 8px;
   display: grid;
-  grid-template-columns: 2fr 8fr;
-  gap: 32px;
+  grid-template-columns: minmax(180px, 20.3vw) minmax(0, 1fr);
+  gap: 0;
   align-items: start;
 }
 
@@ -959,7 +961,7 @@ ol {
 .manifesto-copy blockquote {
   max-width: 20ch;
   color: var(--fg);
-  font-size: clamp(2rem, 4.6vw, 4.6rem);
+  font-size: clamp(2rem, 5vw, 4.8rem);
   font-weight: 500;
   letter-spacing: -0.055em;
   line-height: 1.02;
@@ -968,8 +970,8 @@ ol {
 .manifesto-highlight {
   color: var(--accent-ink);
   background-color: var(--accent);
-  padding-inline: 0.04em;
-  border-radius: 2px;
+  padding-inline: 0.045em;
+  border-radius: 0;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -2615,6 +2617,7 @@ ol {
   .manifesto-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+    padding-inline: var(--gutter);
   }
 
   .manifesto-mark {

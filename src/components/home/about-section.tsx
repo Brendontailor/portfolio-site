@@ -56,7 +56,6 @@ export function AboutSection() {
             <ul className="proof-list">
               <li><strong>Sah Açaí & Cia</strong> — loja real pedindo pelo WhatsApp; backend valida preço, estoque e entrega link só depois de gravar o pedido no PostgreSQL.</li>
               <li><strong>Monky Food</strong> — plataforma white-label multi-tenant: uma base, isolamento por <code>empresaId</code>, vitrine resolve pelo domínio, painel pela sessão.</li>
-              <li><strong>Monky Tech</strong> — PDV, estoque, compras, financeiro e auditoria multiempresa com wrapper Android pro balcão.</li>
               <li><strong>RoutePilot</strong> — PWA offline com 120k endereços locais, busca fuzzy, regiões por polígono, rota com revisão humana e impressão A4.</li>
               <li><strong>PortCont</strong> — conciliação de bases: PDF, XLSX, CSV entram no mesmo pipeline; fuzzy matching separa o certo do &ldquo;parecido&rdquo; pra revisão humana.</li>
               <li><strong>Dropzone</strong> — e-commerce editorial com catálogo, carrinho, favoritos, auth, admin, avaliações, WhatsApp e módulos de IA (colaboração com Leonardo Rosler).</li>

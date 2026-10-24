@@ -24,7 +24,7 @@ export function CasesSection() {
           }
           description={
             <p>
-              Seis recortes de produtos reais: cliente, SaaS, dados, mapa e
+              Cinco recortes de produtos reais: cliente, SaaS, dados, mapa e
               colaboração. Cada case mostra o contexto, a decisão e o que foi
               construído — sem expor código ou dados.
             </p>
@@ -63,8 +63,8 @@ export function CasesSection() {
 
         <Reveal className="cases-footnote">
           <p>
-            As imagens são capturas reais das interfaces e fotos dos produtos.
-            Nenhum dado sensível de cliente é exibido.
+            Fotos, capturas de interface e diagramas mostram os produtos sem
+            expor dados sensíveis de clientes.
           </p>
           <a
             href="https://github.com/Brendontailor/portfolio"

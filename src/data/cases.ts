@@ -358,8 +358,9 @@ export const cases: CaseStudy[] = [
     tags: ["Dados", "Fuzzy matching", "Next.js", "PostgreSQL"],
     summary:
       "Uma aplicação que lê PDF, Excel e CSV, normaliza os registros e mostra quem está nas duas bases, quem é exclusivo e quem precisa de revisão humana.",
-    cover: "/images/case-portcont.webp",
-    coverAlt: "Tela de acesso do PortCont, comparação de bases de clientes",
+    cover: "/images/case-portcont-flow.webp",
+    coverAlt:
+      "Ilustração do fluxo do PortCont, conectando arquivos de planilha à comparação de bases",
     context:
       "Comparar duas bases de clientes manualmente é lento e sujeito a erro. Nomes com variações de escrita, formatos diferentes e duplicados transformam uma conciliação simples em uma planilha enorme.",
     problem:
@@ -424,15 +425,6 @@ export const cases: CaseStudy[] = [
       { label: "Banco", items: ["PostgreSQL no Neon", "Prisma"] },
       { label: "Deploy", items: ["Vercel"] },
       { label: "Testes", items: ["Vitest"] },
-    ],
-    gallery: [
-      {
-        src: "/images/portcont-flow.webp",
-        alt: "Fluxo de comparação de bases do PortCont",
-        caption:
-          "Fluxo de comparação: PDF, Excel e CSV entram, passam pela normalização e saem classificados para revisão humana.",
-        aspect: "4 / 3",
-      },
     ],
     links: [
       {
@@ -527,6 +519,13 @@ export const cases: CaseStudy[] = [
     ],
     gallery: [
       {
+        src: "/images/dropzone-cart.webp",
+        alt: "Catálogo da Dropzone com categorias, produtos e atalhos para favoritos e carrinho",
+        caption:
+          "Vitrine atualizada com navegação por categoria, produtos em destaque e ações de compra.",
+        aspect: "16 / 9",
+      },
+      {
         src: "/images/dropzone-admin.webp",
         alt: "Painel administrativo da Dropzone",
         caption: "Área administrativa: gestão de produtos, pedidos, usuários e relatórios.",
@@ -534,8 +533,9 @@ export const cases: CaseStudy[] = [
       },
       {
         src: "/images/dropzone-auth.webp",
-        alt: "Login e conta do cliente Dropzone",
-        caption: "Autenticação com JWT, recuperação de senha e área do cliente.",
+        alt:
+          "Tela de login da Dropzone com formulário de acesso e chamada para criar conta",
+        caption: "Entrada da conta e criação de cadastro na loja.",
         aspect: "16 / 9",
       },
     ],

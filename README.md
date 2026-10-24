@@ -4,7 +4,7 @@ Portfólio de Brendon Tailor, desenvolvedor full-stack e co-fundador da Monky So
 
 ## O que está aqui
 
-- **6 cases** — Sah Açaí & Cia, Monky Food, Monky Tech, RoutePilot, PortCont e Dropzone.
+- **5 cases** — Sah Açaí & Cia, Monky Food, RoutePilot, PortCont e Dropzone.
 - **9 camadas de conhecimento** — fundamentos, algoritmos, regras de negócio, Clean Code, arquitetura, banco de dados, APIs, infraestrutura/segurança e IA aplicada.
 - **4 itens de laboratório** — AED2 Labirinto, Singleton, Quicksort e Emberblade.
 - **Páginas de case** com contexto, problema, solução, decisões técnicas, stack, galeria e próximo case.
@@ -51,7 +51,7 @@ src/
     code-block.tsx    janela de código do laboratório
     reveal.tsx        revelação no scroll
   data/
-    cases.ts          conteúdo dos 6 cases
+    cases.ts          conteúdo dos 5 cases
     knowledge.ts      as 9 camadas
     lab.ts            os 4 itens do laboratório
     site.ts           marca, contato, navegação e estatísticas
@@ -62,7 +62,7 @@ public/
 
 ## Conteúdo e privacidade
 
-As imagens são capturas reais das interfaces e fotos dos produtos. Nenhum código proprietário, credencial, banco de dados ou dado sensível de cliente é publicado neste repositório. Cases de sistemas privados apresentam apenas contexto, decisões e resultados.
+As imagens incluem capturas reais das interfaces, fotos dos produtos e diagramas dos fluxos. Nenhum código proprietário, credencial, banco de dados ou dado sensível de cliente é publicado neste repositório. Cases de sistemas privados apresentam apenas contexto, decisões e resultados.
 
 O case Dropzone é apresentado com crédito a Leonardo Rosler e sem exposição de dados da marca.
 

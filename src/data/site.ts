@@ -29,7 +29,6 @@ export const manifesto = {
   continuation: ". E tudo que me proponho a fazer, com o ",
   closing: " me torno o melhor.",
 } as const;
-
 export const marqueeItems = [
   "SaaS multi-tenant",
   "Sistemas sob medida",
