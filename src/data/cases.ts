@@ -29,6 +29,10 @@ export type CaseStudy = {
   context: string;
   problem: string;
   solution: string;
+  architecture: {
+    summary: string;
+    modules: { name: string; responsibility: string }[];
+  };
   decisions: { title: string; text: string }[];
   results: string[];
   stack: { label: string; items: string[] }[];
@@ -60,6 +64,27 @@ export const cases: CaseStudy[] = [
       "O pedido não podia ser calculado no navegador: preço, adicionais, copos, colheres e sacolas precisavam ser validados no servidor. A loja também precisava enxergar o que entrou pelo site e o que veio de outros canais.",
     solution:
       "Construí a vitrine, a montagem do copo, o checkout e o painel administrativo. O backend modela o catálogo e as regras comerciais, recalcula cada item, registra o pedido no PostgreSQL e só então devolve o link do WhatsApp. O painel reúne dashboard financeiro, pedidos do site, lançamentos manuais e acompanhamento de custos.",
+    architecture: {
+      summary:
+        "A vitrine monta o pedido; o servidor valida e registra a compra antes de encaminhá-la para a operação da loja.",
+      modules: [
+        {
+          name: "Catálogo e montagem",
+          responsibility:
+            "Apresentar os produtos e reunir tamanho, complementos e escolhas do cliente.",
+        },
+        {
+          name: "Pedidos e validação",
+          responsibility:
+            "Conferir as regras comerciais, recalcular o pedido e registrá-lo antes de abrir o WhatsApp.",
+        },
+        {
+          name: "Operação e financeiro",
+          responsibility:
+            "Acompanhar pedidos digitais, lançamentos manuais, custos e indicadores da loja.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Preço e regra no servidor",
@@ -136,11 +161,32 @@ export const cases: CaseStudy[] = [
     problem:
       "Duplicar o sistema para cada cliente não escala. A plataforma precisava resolver a loja pelo domínio ou subdomínio, separar dados por empresa e manter o painel central funcionando sem misturar operações.",
     solution:
-      "A Monky Food é uma plataforma white-label com banco compartilhado e isolamento por empresa. A vitrine resolve a loja pelo Host, o painel resolve a empresa pela sessão e todas as tabelas de negócio carregam o empresaId. A Sah Açaí é a primeira operação real.",
+      "A Monky Food é uma plataforma white-label com banco compartilhado e isolamento por empresa. A vitrine resolve a loja pelo domínio, o painel identifica a empresa pela sessão e os dados de negócio permanecem separados por operação. A Sah Açaí é a primeira operação real.",
+    architecture: {
+      summary:
+        "Uma plataforma atende diferentes lojas: a vitrine identifica a operação e o painel mantém os dados de cada empresa separados.",
+      modules: [
+        {
+          name: "Vitrine white-label",
+          responsibility:
+            "Resolver a loja pelo domínio e apresentar catálogo e identidade visual próprios.",
+        },
+        {
+          name: "Painel operacional",
+          responsibility:
+            "Atender cada empresa com contexto de sessão e ferramentas da operação.",
+        },
+        {
+          name: "Isolamento multiempresa",
+          responsibility:
+            "Manter os dados de negócio separados entre lojas dentro de uma plataforma compartilhada.",
+        },
+      ],
+    },
     decisions: [
       {
-        title: "empresaId obrigatório",
-        text: "As tabelas de negócio carregam a empresa desde a modelagem. O isolamento não depende de o desenvolvedor lembrar de filtrar.",
+        title: "Isolamento desde a modelagem",
+        text: "Os dados de negócio recebem o contexto da empresa desde a modelagem. O isolamento não depende de filtros aplicados manualmente em cada tela.",
       },
       {
         title: "Resolução por Host",
@@ -211,6 +257,32 @@ export const cases: CaseStudy[] = [
       "O balcão precisa vender rápido, mas o dono precisa enxergar estoque, compras, despesas, contas e permissões. Cada empresa tem seu próprio conjunto de dados e não pode acessar o do outro.",
     solution:
       "O Monky Tech reúne PDV, produtos, variantes, códigos de barras, estoque, compras, despesas, financeiro, relatórios, usuários e auditoria. A mesma aplicação atende várias empresas, com sessões e permissões separadas. O hub administrativo concentra a visão da plataforma, o modo suporte e a gestão de planos.",
+    architecture: {
+      summary:
+        "As vendas do balcão se conectam ao estoque e à gestão financeira, com acesso separado por empresa e uma camada de operação da plataforma.",
+      modules: [
+        {
+          name: "PDV e catálogo",
+          responsibility:
+            "Registrar vendas usando produtos, variantes e códigos de barras.",
+        },
+        {
+          name: "Estoque e compras",
+          responsibility:
+            "Organizar disponibilidade de produtos e o fluxo de reposição da loja.",
+        },
+        {
+          name: "Financeiro e relatórios",
+          responsibility:
+            "Reunir despesas, contas e visões gerenciais da operação.",
+        },
+        {
+          name: "Acesso e auditoria",
+          responsibility:
+            "Separar empresas e permissões, mantendo histórico de ações relevantes.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Venda vinculada ao funcionário",
@@ -266,14 +338,40 @@ export const cases: CaseStudy[] = [
     tags: ["PWA", "Mapas", "Offline", "Geocodificação"],
     summary:
       "Uma PWA para equipes de campo consultarem endereços, entenderem regiões e planejarem a ordem das visitas — inclusive offline.",
-    cover: "/images/case-routepilot.webp",
-    coverAlt: "Tela de acesso do RoutePilot, mapa operacional de visitas técnicas",
+    cover: "/images/case-routepilot-home.png",
+    coverAlt: "Tela inicial do RoutePilot com busca e cidades atendidas",
     context:
       "Equipes de campo precisam localizar um atendimento, entender a região, consultar referências e planejar a ordem das visitas. Em cidades com muitas localidades rurais e bairros com nomes parecidos, um mapa genérico não resolve a operação.",
     problem:
       "A base de endereços é grande, os nomes variam e a conectividade nem sempre existe. A equipe precisa de busca tolerante a acentos, região por polígono, rota pela malha viária local e operação offline.",
     solution:
       "O RoutePilot combina uma base local de endereços e regiões com mapa interativo, busca fuzzy, geocodificação híbrida e cálculo de rotas. A PWA funciona offline com IndexedDB e permite imprimir a rota em A4.",
+    architecture: {
+      summary:
+        "A busca e a base local alimentam o mapa e o planejamento de visitas, com suporte para continuar a operação offline.",
+      modules: [
+        {
+          name: "Endereços e regiões",
+          responsibility:
+            "Consultar localidades e identificar áreas operacionais a partir de uma base local.",
+        },
+        {
+          name: "Busca e geocodificação",
+          responsibility:
+            "Encontrar endereços mesmo com variações de escrita e coordenadas disponíveis.",
+        },
+        {
+          name: "Mapa e planejamento de rota",
+          responsibility:
+            "Visualizar pontos e organizar a ordem das visitas com revisão da equipe.",
+        },
+        {
+          name: "PWA offline",
+          responsibility:
+            "Manter dados e recursos essenciais utilizáveis quando a conexão falha.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Busca que perdoa digitação",
@@ -298,6 +396,15 @@ export const cases: CaseStudy[] = [
       "105 localidades e pontos cadastrados",
       "122.919 endereços integrados para consulta local",
       "PWA instalável com operação offline",
+    ],
+    gallery: [
+      {
+        src: "/images/case-routepilot-map.png",
+        alt: "Mapa do RoutePilot com localidades e regiões operacionais de Pelotas e cidades próximas",
+        caption:
+          "Mapa operacional com localidades públicas, pontos de referência e limites das regiões atendidas.",
+        aspect: "16 / 9",
+      },
     ],
     stack: [
       {
@@ -349,6 +456,27 @@ export const cases: CaseStudy[] = [
       "O time precisava importar arquivos heterogêneos, comparar bases e separar o que é certeza do que é semelhança. O critério não podia ser só igualdade exata, e o resultado precisava ser revisável.",
     solution:
       "O PortCont recebe PDF, XLSX, XLS e CSV, extrai os clientes e compara as bases. O sistema classifica em existentes, exclusivos da base A, exclusivos da base B e semelhantes para revisão. O time revisa os ambíguos, gera relatórios e exporta o resultado.",
+    architecture: {
+      summary:
+        "Arquivos de diferentes formatos entram em um fluxo de extração, comparação assistida e geração de resultados revisáveis.",
+      modules: [
+        {
+          name: "Importação e extração",
+          responsibility:
+            "Receber arquivos de planilha e documentos e extrair os registros para comparação.",
+        },
+        {
+          name: "Normalização e comparação",
+          responsibility:
+            "Padronizar os dados e classificar correspondências, exclusividades e possíveis semelhanças.",
+        },
+        {
+          name: "Revisão e relatórios",
+          responsibility:
+            "Permitir que uma pessoa resolva casos ambíguos e exporte o resultado da conciliação.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Normalização antes da comparação",
@@ -427,6 +555,27 @@ export const cases: CaseStudy[] = [
       "A marca precisava de uma experiência editorial forte, mas também de uma base de e-commerce que aguentasse catálogo, contas, administração e integrações.",
     solution:
       "Atuei no frontend da vitrine e na integração com o backend, incluindo catálogo, carrinho, favoritos e login. Também contribuí em módulos de autenticação, administração, avaliações, WhatsApp e recursos de IA.",
+    architecture: {
+      summary:
+        "A vitrine e a experiência de compra se integram aos serviços de catálogo, conta e recursos compartilhados do produto.",
+      modules: [
+        {
+          name: "Vitrine e catálogo",
+          responsibility:
+            "Apresentar coleções, produtos, filtros e conteúdo editorial da marca.",
+        },
+        {
+          name: "Conta e experiência de compra",
+          responsibility:
+            "Conectar login, carrinho e favoritos à navegação da loja.",
+        },
+        {
+          name: "Serviços integrados",
+          responsibility:
+            "Reunir avaliações, atendimento por WhatsApp e recursos de IA em módulos do produto.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Editorial + operação",

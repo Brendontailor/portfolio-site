@@ -13,7 +13,13 @@ export function Manifesto() {
         </Reveal>
 
         <Reveal className="manifesto-copy" delay={90}>
-          <blockquote id="manifesto-title">{manifesto}</blockquote>
+          <blockquote id="manifesto-title">
+            {manifesto.opening}
+            <mark className="manifesto-highlight">tempo</mark>
+            {manifesto.continuation}
+            <mark className="manifesto-highlight">tempo</mark>
+            {manifesto.closing}
+          </blockquote>
           <p>
             Não é sobre saber tudo. É sobre aprender rápido, testar, corrigir e
             entregar algo que funcione. O resto é consequência.

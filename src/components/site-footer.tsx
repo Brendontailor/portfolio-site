@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { site } from "@/data/site";
 import { ArrowUpRight, GithubIcon, MailIcon } from "./icons";
+import { BrandMark } from "./brand-mark";
 
 export function SiteFooter() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <span className="brand-mark" aria-hidden="true">
-            BT
-          </span>
+          <BrandMark />
           <div>
             <strong>Brendon Tailor</strong>
             <span>Full-stack developer · Monky Soluções</span>

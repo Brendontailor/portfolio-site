@@ -192,6 +192,19 @@ export default async function CasePage({ params }: CasePageProps) {
             <p>{study.solution}</p>
           </section>
 
+          <section aria-labelledby="case-architecture">
+            <h2 id="case-architecture">Módulos do sistema</h2>
+            <p>{study.architecture.summary}</p>
+            <ul className="decision-grid module-grid">
+              {study.architecture.modules.map((module) => (
+                <li key={module.name} className="decision">
+                  <h3>{module.name}</h3>
+                  <p>{module.responsibility}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+
           <section aria-labelledby="case-decisions">
             <h2 id="case-decisions">Decisões técnicas</h2>
             <div className="decision-grid">

@@ -24,8 +24,11 @@ export const site = {
   ],
 } as const;
 
-export const manifesto =
-  "Não há nada que eu não faça com o tempo. E tudo que eu faço, eu me torno melhor.";
+export const manifesto = {
+  opening: "Não há nada que eu não possa fazer com o ",
+  continuation: ". Em tudo a que me proponho a fazer, com o ",
+  closing: " me torno o melhor.",
+} as const;
 
 export const marqueeItems = [
   "SaaS multi-tenant",

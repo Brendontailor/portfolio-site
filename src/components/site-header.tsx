@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 import { ArrowUpRight, CloseIcon, MenuIcon } from "./icons";
+import { BrandMark } from "./brand-mark";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -36,9 +37,7 @@ export function SiteHeader() {
       <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <div className="container header-inner">
           <Link href="/" className="brand" aria-label="Brendon Tailor — início">
-            <span className="brand-mark" aria-hidden="true">
-              BT
-            </span>
+            <BrandMark />
             <span className="brand-text">
               <span className="brand-name">Brendon Tailor</span>
               <span className="brand-role">full-stack developer</span>
@@ -80,9 +79,7 @@ export function SiteHeader() {
         <div className="container mobile-menu-inner">
           <div className="mobile-menu-top">
             <Link href="/" className="brand" onClick={() => setOpen(false)}>
-              <span className="brand-mark" aria-hidden="true">
-                BT
-              </span>
+              <BrandMark />
               <span className="brand-text">
                 <span className="brand-name">Brendon Tailor</span>
                 <span className="brand-role">full-stack developer</span>

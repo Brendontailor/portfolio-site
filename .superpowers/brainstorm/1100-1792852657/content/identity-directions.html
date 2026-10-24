@@ -1,0 +1,104 @@
+<style>
+  .identity {
+    --ink: #08090a;
+    --paper: #f2f0ea;
+    --lime: #c8ff4d;
+    --quiet: #9ba1a6;
+    color: var(--paper);
+    background: var(--ink);
+    border: 1px solid #292d30;
+    border-radius: 20px;
+    padding: clamp(22px, 4vw, 42px);
+    font-family: Arial, sans-serif;
+  }
+  .identity * { box-sizing: border-box; }
+  .identity-head { margin-bottom: 28px; }
+  .identity-kicker { color: var(--lime); font: 11px/1.4 monospace; letter-spacing: .15em; text-transform: uppercase; }
+  .identity h2 { color: var(--paper); margin: 10px 0 8px; font-size: clamp(25px, 4vw, 38px); letter-spacing: -.05em; }
+  .identity-intro { color: var(--quiet); max-width: 58ch; font-size: 14px; }
+  .identity-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .identity-card { overflow: hidden; border: 1px solid #303538; border-radius: 14px; background: #101315; cursor: pointer; transition: transform .18s, border-color .18s; }
+  .identity-card:hover { transform: translateY(-3px); border-color: var(--lime); }
+  .identity-card.selected { border: 2px solid var(--lime); }
+  .identity-art { min-height: 205px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(ellipse at 70% 0%, #1a2110, #0d0f10 70%); }
+  .identity-tag { align-self: flex-start; color: var(--lime); font: 10px monospace; letter-spacing: .12em; text-transform: uppercase; }
+  .identity-lockup { display: flex; align-items: center; gap: 12px; }
+  .identity-lockup svg { width: 42px; height: 42px; flex: 0 0 auto; }
+  .identity-name { color: var(--paper); font-size: 14px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+  .identity-role { color: var(--quiet); margin-top: 4px; font: 8px monospace; letter-spacing: .1em; text-transform: uppercase; }
+  .identity-samples { border-top: 1px solid #303538; padding-top: 13px; display: flex; align-items: center; gap: 12px; color: var(--quiet); font: 10px monospace; }
+  .identity-favicon { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #33383b; border-radius: 9px; background: #08090a; }
+  .identity-favicon svg { width: 25px; height: 25px; }
+  .identity-browser { height: 31px; display: flex; align-items: center; gap: 7px; flex: 1; padding: 0 9px; border: 1px solid #303538; border-radius: 6px; color: #777e82; background: #0b0d0e; font: 9px monospace; }
+  .identity-browser svg { width: 12px; height: 12px; }
+  .identity-copy { min-height: 127px; padding: 17px; }
+  .identity-copy h3 { color: var(--paper); margin: 0 0 8px; font-size: 16px; }
+  .identity-copy p { color: var(--quiet); margin: 0; font-size: 12px; line-height: 1.6; }
+  .identity-foot { color: #71787b; margin-top: 20px; font-size: 12px; }
+  @media (max-width: 800px) { .identity-options { grid-template-columns: 1fr; } .identity-art { min-height: 175px; } }
+</style>
+
+<section class="identity">
+  <header class="identity-head">
+    <div class="identity-kicker">Brendon Tailor · identidade visual</div>
+    <h2>Qual marca parece mais sua?</h2>
+    <p class="identity-intro">Três caminhos para deixar logo e favicon mais reconhecíveis, mantendo o fundo escuro e o verde-limão do portfólio. Clique em uma opção para marcar sua favorita.</p>
+  </header>
+
+  <div class="identity-options">
+    <article class="identity-card" data-choice="monograma" onclick="toggleSelect(this)">
+      <div class="identity-art">
+        <div class="identity-tag">Recomendado · evolução do atual</div>
+        <div class="identity-lockup">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Monograma BT geométrico">
+            <path d="M7 7h17v5H13v9h10v5H13v10h11v5H7z" fill="#c8ff4d"/>
+            <path d="M27 7h8a9 9 0 0 1 6 15 9 9 0 0 1-6 16H27zm6 5v8h2a4 4 0 0 0 0-8zm0 13v8h2a4 4 0 0 0 0-8z" fill="#f2f0ea"/>
+          </svg>
+          <div><div class="identity-name">Brendon Tailor</div><div class="identity-role">Full-stack developer</div></div>
+        </div>
+        <div class="identity-samples">
+          <div class="identity-favicon"><svg viewBox="0 0 48 48"><path d="M7 7h17v5H13v9h10v5H13v10h11v5H7z" fill="#c8ff4d"/><path d="M27 7h8a9 9 0 0 1 6 15 9 9 0 0 1-6 16H27zm6 5v8h2a4 4 0 0 0 0-8zm0 13v8h2a4 4 0 0 0 0-8z" fill="#f2f0ea"/></svg></div>
+          <div class="identity-browser"><svg viewBox="0 0 48 48"><path d="M7 7h17v5H13v9h10v5H13v10h11v5H7z" fill="#c8ff4d"/><path d="M27 7h8a9 9 0 0 1 6 15 9 9 0 0 1-6 16H27zm6 5v8h2a4 4 0 0 0 0-8zm0 13v8h2a4 4 0 0 0 0-8z" fill="#f2f0ea"/> </svg> brendontailor.vercel.app</div>
+        </div>
+      </div>
+      <div class="identity-copy"><h3>Monograma construído</h3><p>BT redesenhado como um símbolo geométrico próprio. Mantém reconhecimento pessoal e ganha mais presença em tamanhos pequenos.</p></div>
+    </article>
+
+    <article class="identity-card" data-choice="sistema" onclick="toggleSelect(this)">
+      <div class="identity-art">
+        <div class="identity-tag">Técnico · linguagem de código</div>
+        <div class="identity-lockup">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Símbolo de terminal e cursor">
+            <rect x="2" y="2" width="44" height="44" rx="12" fill="#c8ff4d"/>
+            <path d="m12 16 8 8-8 8M24 32h12" fill="none" stroke="#08090a" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+          <div><div class="identity-name">Brendon Tailor</div><div class="identity-role">Build · solve · improve</div></div>
+        </div>
+        <div class="identity-samples">
+          <div class="identity-favicon"><svg viewBox="0 0 48 48"><rect x="2" y="2" width="44" height="44" rx="12" fill="#c8ff4d"/><path d="m12 16 8 8-8 8M24 32h12" fill="none" stroke="#08090a" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg></div>
+          <div class="identity-browser"><svg viewBox="0 0 48 48"><rect x="2" y="2" width="44" height="44" rx="12" fill="#c8ff4d"/><path d="m12 16 8 8-8 8M24 32h12" fill="none" stroke="#08090a" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg> brendontailor.vercel.app</div>
+        </div>
+      </div>
+      <div class="identity-copy"><h3>Símbolo de construção</h3><p>Um prompt de terminal vira ícone direto e legível. Mais ligado à programação, mas menos distintivo como marca pessoal.</p></div>
+    </article>
+
+    <article class="identity-card" data-choice="wordmark" onclick="toggleSelect(this)">
+      <div class="identity-art">
+        <div class="identity-tag">Editorial · nome em primeiro plano</div>
+        <div class="identity-lockup">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Wordmark BT editorial">
+            <path d="M6 8h28v5H11v8h19v5H11v9h24v5H6z" fill="#f2f0ea"/>
+            <path d="M40 8v32" stroke="#c8ff4d" stroke-width="4"/>
+          </svg>
+          <div><div class="identity-name">Brendon Tailor</div><div class="identity-role">Software · products · systems</div></div>
+        </div>
+        <div class="identity-samples">
+          <div class="identity-favicon"><svg viewBox="0 0 48 48"><path d="M6 8h28v5H11v8h19v5H11v9h24v5H6z" fill="#f2f0ea"/><path d="M40 8v32" stroke="#c8ff4d" stroke-width="4"/></svg></div>
+          <div class="identity-browser"><svg viewBox="0 0 48 48"><path d="M6 8h28v5H11v8h19v5H11v9h24v5H6z" fill="#f2f0ea"/><path d="M40 8v32" stroke="#c8ff4d" stroke-width="4"/></svg> brendontailor.vercel.app</div>
+        </div>
+      </div>
+      <div class="identity-copy"><h3>Wordmark tipográfico</h3><p>Prioriza o nome com uma assinatura minimalista. Sofisticado em aplicações grandes; favicon menos óbvio sem recorrer às iniciais.</p></div>
+    </article>
+  </div>
+  <p class="identity-foot">As opções são estudos de direção, não arquivos finais. Depois da escolha, ajusto proporções, versão clara/escura e aplicação no cabeçalho, rodapé e favicon.</p>
+</section>
