@@ -26,7 +26,7 @@ export const site = {
 
 export const manifesto = {
   opening: "Não há nada que eu não possa fazer com o ",
-  continuation: ". Em tudo que me proponho a fazer, com o ",
+  continuation: ". E tudo que me proponho a fazer, com o ",
   closing: " me torno o melhor.",
 } as const;
 
