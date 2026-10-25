@@ -57,7 +57,11 @@ export function Hero() {
         </Reveal>
 
         <Reveal className="hero-visual-wrap" delay={140}>
-          <div className="hero-visual" aria-label="Prévia de projetos reais">
+          <div
+            className="hero-visual"
+            role="img"
+            aria-label="Prévia de projetos reais"
+          >
             <div className="hero-visual-glow" aria-hidden="true" />
 
             <div className="hero-main-frame">

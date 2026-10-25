@@ -51,7 +51,7 @@ export function AboutSection() {
               roda sem supervisão constante.
             </p>
             <p>
-              Cada case abaixo prova um ângulo diferente:
+              Cada case deste portfólio prova um ângulo diferente:
             </p>
             <ul className="proof-list">
               <li><strong>Sah Açaí & Cia</strong> — loja real pedindo pelo WhatsApp; backend valida preço, estoque e entrega link só depois de gravar o pedido no PostgreSQL.</li>

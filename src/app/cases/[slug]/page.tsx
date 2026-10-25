@@ -77,7 +77,7 @@ export default async function CasePage({ params }: CasePageProps) {
 
           <div className="case-hero-meta">
             <span>
-              {study.index} / 05
+              {study.index} / {String(cases.length).padStart(2, "0")}
             </span>
             <span>{study.type}</span>
             <span>{study.year}</span>
