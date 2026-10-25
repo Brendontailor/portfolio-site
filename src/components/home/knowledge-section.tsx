@@ -64,9 +64,6 @@ export function KnowledgeSection() {
                     ))}
                   </div>
                 </div>
-                <span className="knowledge-arrow" aria-hidden="true">
-                  <ArrowUpRight size={18} />
-                </span>
               </Reveal>
             ))}
           </div>

@@ -1324,18 +1324,10 @@ ol {
 
 .knowledge-row {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr) 24px;
+  grid-template-columns: 52px minmax(0, 1fr);
   gap: 20px;
   padding: 26px 0;
   border-bottom: 1px solid var(--line);
-  transition:
-    background 0.3s ease,
-    padding 0.3s ease;
-}
-
-.knowledge-row:hover {
-  background: var(--surface);
-  padding-inline: 16px;
 }
 
 .knowledge-num {
@@ -1360,19 +1352,6 @@ ol {
   color: var(--muted);
   font-size: 0.94rem;
   line-height: 1.65;
-}
-
-.knowledge-arrow {
-  padding-top: 3px;
-  color: var(--muted);
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.knowledge-row:hover .knowledge-arrow {
-  color: var(--accent);
-  transform: translate(2px, -2px);
 }
 
 .chips {
@@ -2778,14 +2757,6 @@ ol {
   .knowledge-row {
     grid-template-columns: 34px minmax(0, 1fr);
     gap: 12px;
-  }
-
-  .knowledge-arrow {
-    display: none;
-  }
-
-  .knowledge-row:hover {
-    padding-inline: 10px;
   }
 
   .about-portrait {
