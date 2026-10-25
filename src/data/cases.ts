@@ -248,7 +248,7 @@ export const cases: CaseStudy[] = [
     tags: ["PWA", "Mapas", "Offline", "Geocodificação"],
     summary:
       "Uma PWA para equipes de campo consultarem endereços, entenderem regiões e planejarem a ordem das visitas — inclusive offline.",
-    cover: "/images/case-routepilot-home.png",
+    cover: "/images/case-routepilot-home.webp",
     coverAlt: "Tela inicial do RoutePilot com busca e cidades atendidas",
     context:
       "Equipes de campo precisam localizar um atendimento, entender a região, consultar referências e planejar a ordem das visitas. Em cidades com muitas localidades rurais e bairros com nomes parecidos, um mapa genérico não resolve a operação.",
@@ -309,7 +309,7 @@ export const cases: CaseStudy[] = [
     ],
     gallery: [
       {
-        src: "/images/case-routepilot-map.png",
+        src: "/images/case-routepilot-map.webp",
         alt: "Mapa do RoutePilot com localidades e regiões operacionais de Pelotas e cidades próximas",
         caption:
           "Mapa operacional com localidades públicas, pontos de referência e limites das regiões atendidas.",
