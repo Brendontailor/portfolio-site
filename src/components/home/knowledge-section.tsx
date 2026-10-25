@@ -8,6 +8,7 @@ export function KnowledgeSection() {
     <section
       id="conhecimento"
       className="section knowledge-section"
+      tabIndex={-1}
       aria-labelledby="knowledge-title"
     >
       <div className="container">
@@ -32,7 +33,7 @@ export function KnowledgeSection() {
           <Reveal className="knowledge-sticky">
             <p className="eyebrow">Mapa de trabalho</p>
             <div className="knowledge-big" aria-hidden="true">
-              09
+              {String(knowledgeLayers.length).padStart(2, "0")}
             </div>
             <p className="knowledge-big-label">camadas que se conectam</p>
             <p className="knowledge-note">

@@ -9,6 +9,7 @@ export function CasesSection() {
     <section
       id="cases"
       className="section cases-section"
+      tabIndex={-1}
       aria-labelledby="cases-title"
     >
       <div className="container">
@@ -24,7 +25,7 @@ export function CasesSection() {
           }
           description={
             <p>
-              Cinco recortes de produtos reais: cliente, SaaS, dados, mapa e
+              {cases.length} recortes de produtos reais: cliente, SaaS, dados, mapa e
               colaboração. Cada case mostra o contexto, a decisão e o que foi
               construído — sem expor código ou dados.
             </p>
@@ -73,6 +74,7 @@ export function CasesSection() {
           >
             Vitrine no GitHub
             <ArrowUpRight size={14} />
+            <span className="visually-hidden"> (abre em nova aba)</span>
           </a>
         </Reveal>
       </div>

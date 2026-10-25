@@ -6,6 +6,7 @@ export function AboutSection() {
     <section
       id="sobre"
       className="section about-section"
+      tabIndex={-1}
       aria-labelledby="about-title"
     >
       <div className="container">

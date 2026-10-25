@@ -122,6 +122,11 @@ cases.forEach((study, position) => {
   requirePublicFile(study.cover, `${label}.cover`);
   requireText(study.coverAlt, `${label}.coverAlt`);
 
+  const ogImage = `/og/${study.slug}.jpg`;
+  if (!existsSync(join(publicDir, ogImage))) {
+    errors.push(`${label} sem imagem social: ${ogImage}`);
+  }
+
   (study.gallery ?? []).forEach((image, imageIndex) => {
     requirePublicFile(image.src, `${label}.gallery[${imageIndex}].src`);
     requireText(image.alt, `${label}.gallery[${imageIndex}].alt`);

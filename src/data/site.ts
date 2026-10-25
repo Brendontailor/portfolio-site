@@ -17,7 +17,6 @@ export const site = {
     { label: "Sobre", href: "/#sobre" },
   ],
   stats: [
-    { value: "05", label: "cases" },
     { value: "03", label: "produtos próprios" },
     { value: "01", label: "cliente real" },
     { value: "2026", label: "em construção" },

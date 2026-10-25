@@ -31,6 +31,16 @@ export function SiteHeader() {
     triggerRef.current?.focus();
   }, []);
 
+  const handleMenuNavigate = useCallback((href: string) => {
+    setOpen(false);
+    const hash = href.split("#")[1];
+    if (!hash) return;
+
+    window.requestAnimationFrame(() => {
+      document.getElementById(hash)?.focus({ preventScroll: true });
+    });
+  }, []);
+
   useEffect(() => {
     if (!open) return;
 
@@ -129,7 +139,7 @@ export function SiteHeader() {
       >
         <div className="container mobile-menu-inner">
           <div className="mobile-menu-top">
-            <Link href="/" className="brand" onClick={() => setOpen(false)}>
+            <Link href="/" className="brand" onClick={closeMenu}>
               <BrandMark />
               <span className="brand-text">
                 <span className="brand-name">Brendon Tailor</span>
@@ -151,7 +161,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={() => handleMenuNavigate(item.href)}
               >
                 <span className="mobile-nav-index">
                   {String(index + 1).padStart(2, "0")}
@@ -160,8 +170,10 @@ export function SiteHeader() {
                 <ArrowUpRight size={20} />
               </Link>
             ))}
-            <Link href="/#contato" onClick={() => setOpen(false)}>
-              <span className="mobile-nav-index">05</span>
+            <Link href="/#contato" onClick={() => handleMenuNavigate("/#contato")}>
+              <span className="mobile-nav-index">
+                {String(site.nav.length + 1).padStart(2, "0")}
+              </span>
               <span>Contato</span>
               <ArrowUpRight size={20} />
             </Link>

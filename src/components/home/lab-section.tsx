@@ -9,6 +9,7 @@ export function LabSection() {
     <section
       id="laboratorio"
       className="section lab-section"
+      tabIndex={-1}
       aria-labelledby="lab-title"
     >
       <div className="container">

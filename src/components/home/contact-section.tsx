@@ -8,6 +8,7 @@ export function ContactSection() {
     <section
       id="contato"
       className="contact-section"
+      tabIndex={-1}
       aria-labelledby="contact-title"
     >
       <div className="contact-glow" aria-hidden="true" />

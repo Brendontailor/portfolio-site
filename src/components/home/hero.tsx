@@ -1,9 +1,15 @@
 import Image from "next/image";
 import { site } from "@/data/site";
+import { cases } from "@/data/cases";
 import { ArrowDown, ArrowUpRight } from "@/components/icons";
 import { BrowserFrame } from "@/components/browser-frame";
 
 export function Hero() {
+  const stats = [
+    { value: String(cases.length).padStart(2, "0"), label: "cases" },
+    ...site.stats,
+  ];
+
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="container hero-grid">
@@ -26,13 +32,13 @@ export function Hero() {
             <strong>Brendon Tailor</strong> — desenvolvedor full-stack que entrega sistemas
             completos: do modelo de dados à interface, da arquitetura à operação.
             <br />
-            Cinco cases reais comprovam: SaaS multi-tenant, plataformas white-label,
+            {cases.length} cases reais comprovam: SaaS multi-tenant, plataformas white-label,
             PWA offline com mapas, conciliação de bases e e-commerce editorial.
           </p>
 
           <div className="hero-actions">
             <a href="#cases" className="btn btn-primary">
-              Ver os 5 cases
+              Ver os {cases.length} cases
               <ArrowUpRight size={16} />
             </a>
             <a href="#contato" className="btn btn-ghost">
@@ -41,7 +47,7 @@ export function Hero() {
           </div>
 
           <div className="hero-meta">
-            {site.stats.map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="hero-meta-item">
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
