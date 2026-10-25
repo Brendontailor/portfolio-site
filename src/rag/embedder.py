@@ -11,8 +11,8 @@ class Embedder:
     def __init__(self, config: IndexConfig, paths: RagPaths):
         self.config = config
         self.paths = paths
-        self._session: ort.InferenceSession = None
-        self._tokenizer: Tokenizer = None
+        self._session: ort.InferenceSession | None = None
+        self._tokenizer: Tokenizer | None = None
         self._dim = config.embedding_dim
     
     def _load(self):
@@ -21,11 +21,19 @@ class Embedder:
         model_path = get_model_path(self.config.embedding_model, self.paths.model_dir)
         tokenizer_path = model_path.parent / "tokenizer.json"
         
-        self._session = ort.InferenceSession(
-            str(model_path),
-            providers=["CPUExecutionProvider"]
-        )
-        self._tokenizer = Tokenizer.from_file(str(tokenizer_path))
+        try:
+            self._session = ort.InferenceSession(
+                str(model_path),
+                providers=["CPUExecutionProvider"]
+            )
+        except Exception as e:
+            raise RuntimeError(f"Failed to load ONNX model from {model_path}: {e}") from e
+        
+        try:
+            self._tokenizer = Tokenizer.from_file(str(tokenizer_path))
+        except Exception as e:
+            raise RuntimeError(f"Failed to load tokenizer from {tokenizer_path}: {e}") from e
+        
         self._tokenizer.enable_truncation(max_length=512)
         self._tokenizer.enable_padding(pad_id=0, pad_token="[PAD]", length=512)
     

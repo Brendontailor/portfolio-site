@@ -1,5 +1,4 @@
 import urllib.request
-import hashlib
 from pathlib import Path
 from typing import Optional
 
