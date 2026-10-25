@@ -2,13 +2,12 @@ import Image from "next/image";
 import { site } from "@/data/site";
 import { ArrowDown, ArrowUpRight } from "@/components/icons";
 import { BrowserFrame } from "@/components/browser-frame";
-import { Reveal } from "@/components/reveal";
 
 export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="container hero-grid">
-        <Reveal className="hero-copy">
+        <div className="hero-copy">
           <p className="hero-eyebrow">
             <span className="status-dot" aria-hidden="true" />
             {site.availability}
@@ -54,9 +53,9 @@ export function Hero() {
             Role para ver os cases
             <ArrowDown size={14} />
           </a>
-        </Reveal>
+        </div>
 
-        <Reveal className="hero-visual-wrap" delay={140}>
+        <div className="hero-visual-wrap">
           <div
             className="hero-visual"
             role="img"
@@ -121,7 +120,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
