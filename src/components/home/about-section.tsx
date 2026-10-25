@@ -47,7 +47,7 @@ export function AboutSection() {
 
           <Reveal className="about-bio" delay={110}>
             <p className="about-lede">
-              Desenvolvo sistemas full-stack há anos — do zero à operação real.
+              Desenvolvo sistemas full-stack — do zero à operação real.
               Minha especialidade: transformar operações caóticas em software que
               roda sem supervisão constante.
             </p>
