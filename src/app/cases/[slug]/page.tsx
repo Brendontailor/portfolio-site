@@ -42,9 +42,9 @@ export async function generateMetadata({
       description: study.summary,
       images: [
         {
-          url: study.cover,
-          width: 1600,
-          height: 1000,
+          url: `/og/${study.slug}.jpg`,
+          width: 1200,
+          height: 630,
           alt: study.coverAlt,
         },
       ],
@@ -53,7 +53,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${study.title} — ${study.kicker}`,
       description: study.summary,
-      images: [study.cover],
+      images: [`/og/${study.slug}.jpg`],
     },
   };
 }

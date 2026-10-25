@@ -3,7 +3,7 @@ import { cases } from "@/data/cases";
 import { site } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-10-22");
+  const lastModified = new Date("2026-10-24");
 
   return [
     {
