@@ -112,6 +112,7 @@ export default async function CasePage({ params }: CasePageProps) {
                     ) : null}
                     {link.label}
                     <ArrowUpRight size={14} />
+                    <span className="visually-hidden"> (abre em nova aba)</span>
                   </a>
                 ))
               ) : (
@@ -168,6 +169,7 @@ export default async function CasePage({ params }: CasePageProps) {
                 >
                   {link.label}
                   <ArrowUpRight size={14} />
+                  <span className="visually-hidden"> (abre em nova aba)</span>
                 </a>
               ))}
             </div>

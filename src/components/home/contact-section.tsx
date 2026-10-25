@@ -40,6 +40,7 @@ export function ContactSection() {
             >
               <GithubIcon size={16} />
               GitHub
+              <span className="visually-hidden"> (abre em nova aba)</span>
             </a>
           </div>
 

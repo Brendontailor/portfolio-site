@@ -72,6 +72,7 @@ export function LabSection() {
                     <a href={item.href} target="_blank" rel="noreferrer">
                       Abrir repositório
                       <ArrowUpRight size={14} />
+                      <span className="visually-hidden"> (abre em nova aba)</span>
                     </a>
                   ) : (
                     <span>sem link público</span>

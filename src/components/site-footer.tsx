@@ -23,6 +23,7 @@ export function SiteFooter() {
           <a href={site.github} target="_blank" rel="noreferrer">
             <GithubIcon size={14} />
             GitHub
+            <span className="visually-hidden"> (abre em nova aba)</span>
           </a>
           <Link href="/#cases">
             Cases
