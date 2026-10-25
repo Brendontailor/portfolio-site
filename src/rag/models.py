@@ -41,6 +41,22 @@ class IndexConfig:
         if self.exclude_patterns is None:
             self.exclude_patterns = ["**/node_modules/**", "**/dist/**", "**/build/**", "**/.next/**", "**/*.lock", "**/*.min.*"]
 
+    def to_dict(self) -> dict:
+        """Return a JSON-serializable dict of config fields."""
+        return {
+            "version": self.version,
+            "embedding_model": self.embedding_model,
+            "embedding_dim": self.embedding_dim,
+            "chunk_max_tokens": self.chunk_max_tokens,
+            "chunk_overlap_tokens": self.chunk_overlap_tokens,
+            "hybrid_alpha": self.hybrid_alpha,
+            "default_k": self.default_k,
+            "default_max_tokens": self.default_max_tokens,
+            "include_patterns": self.include_patterns,
+            "exclude_patterns": self.exclude_patterns,
+            "watch": self.watch,
+        }
+
 @dataclass
 class FileHash:
     path: str

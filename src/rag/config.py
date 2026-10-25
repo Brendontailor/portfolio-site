@@ -5,26 +5,28 @@ from .paths import RagPaths
 
 DEFAULT_CONFIG = IndexConfig()
 
+
 def load_config(root: Path) -> IndexConfig:
     paths = RagPaths.from_root(root)
     if paths.config_file.exists():
         with open(paths.config_file) as f:
             data = json.load(f)
         # Merge with defaults for forward compat
-        config = DEFAULT_CONFIG
+        config = IndexConfig()
         for key, value in data.items():
             if hasattr(config, key):
                 setattr(config, key, value)
         return config
     return DEFAULT_CONFIG
 
+
 def save_config(config: IndexConfig, root: Path):
     paths = RagPaths.from_root(root)
     paths.ensure_dirs()
-    data = config.__dict__.copy()
-    # Convert Path objects to strings if any
+    data = config.to_dict()
     with open(paths.config_file, "w") as f:
         json.dump(data, f, indent=2)
+
 
 def ensure_gitignore(root: Path):
     gitignore = root / ".gitignore"
