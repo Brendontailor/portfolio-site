@@ -1,0 +1,298 @@
+{
+  "communities": {
+    "0": [
+      "eslint_config",
+      "eslint_config_eslintconfig",
+      "package",
+      "package_dependencies",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_turbopack",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_version",
+      "ref_eslint",
+      "ref_eslint_config_next",
+      "ref_react_dom",
+      "ref_tailwindcss",
+      "ref_tailwindcss_turbopack",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_typescript"
+    ],
+    "1": [
+      "ref_react",
+      "src_app_globals",
+      "src_app_layout",
+      "src_app_layout_jetbrains",
+      "src_app_layout_metadata",
+      "src_app_layout_plex",
+      "src_app_layout_rootlayout",
+      "src_app_layout_viewport",
+      "src_components_brand_mark",
+      "src_components_brand_mark_brandmark",
+      "src_components_copy_email",
+      "src_components_copy_email_copyemail",
+      "src_components_copy_email_copyemail_handlecopy",
+      "src_components_copy_email_copyemailprops",
+      "src_components_home_contact_section",
+      "src_components_icons",
+      "src_components_icons_arrowdown",
+      "src_components_icons_arrowright",
+      "src_components_icons_baseprops",
+      "src_components_icons_checkicon",
+      "src_components_icons_closeicon",
+      "src_components_icons_copyicon",
+      "src_components_icons_githubicon",
+      "src_components_icons_iconprops",
+      "src_components_icons_mailicon",
+      "src_components_icons_menuicon",
+      "src_components_icons_sparkicon",
+      "src_components_site_footer",
+      "src_components_site_footer_sitefooter",
+      "src_components_site_header",
+      "src_components_site_header_siteheader"
+    ],
+    "2": [
+      "src_app_page",
+      "src_app_page_home",
+      "src_components_browser_frame",
+      "src_components_browser_frame_browserframe",
+      "src_components_browser_frame_browserframeprops",
+      "src_components_case_card_casecard",
+      "src_components_home_about_section",
+      "src_components_home_about_section_aboutsection",
+      "src_components_home_cases_section",
+      "src_components_home_cases_section_casessection",
+      "src_components_home_contact_section_contactsection",
+      "src_components_home_hero",
+      "src_components_home_hero_hero",
+      "src_components_home_knowledge_section",
+      "src_components_home_knowledge_section_knowledgesection",
+      "src_components_home_lab_section",
+      "src_components_home_lab_section_labsection",
+      "src_components_home_manifesto",
+      "src_components_home_manifesto_manifesto",
+      "src_components_home_marquee_marquee",
+      "src_components_icons_arrowupright",
+      "src_components_reveal",
+      "src_components_reveal_reveal",
+      "src_components_reveal_revealprops",
+      "src_components_section_heading",
+      "src_components_section_heading_sectionheading",
+      "src_components_section_heading_sectionheadingprops",
+      "src_data_lab",
+      "src_data_lab_labitem",
+      "src_data_lab_labitems"
+    ],
+    "3": [
+      "next_config",
+      "next_config_nextconfig",
+      "ref_next",
+      "ref_node_path",
+      "src_app_cases_slug_page",
+      "src_app_cases_slug_page_casepage",
+      "src_app_cases_slug_page_casepageprops",
+      "src_app_cases_slug_page_generatemetadata",
+      "src_app_cases_slug_page_generatestaticparams",
+      "src_app_cases_slug_page_instant",
+      "src_app_not_found",
+      "src_app_not_found_notfound",
+      "src_app_sitemap",
+      "src_app_sitemap_sitemap",
+      "src_components_case_card",
+      "src_components_case_card_casecardprops",
+      "src_data_cases",
+      "src_data_cases_caseimage",
+      "src_data_cases_caselink",
+      "src_data_cases_cases",
+      "src_data_cases_casestudy",
+      "src_data_cases_getcase",
+      "src_data_cases_getnextcase"
+    ],
+    "4": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "5": [
+      "src_components_code_block",
+      "src_components_code_block_codeblock",
+      "src_components_code_block_codeblockprops",
+      "src_lib_highlight",
+      "src_lib_highlight_escapehtml",
+      "src_lib_highlight_findcomment",
+      "src_lib_highlight_highlightcode",
+      "src_lib_highlight_highlightline",
+      "src_lib_highlight_keywords"
+    ],
+    "6": [
+      "src_app_robots",
+      "src_app_robots_robots",
+      "src_components_home_marquee",
+      "src_data_site",
+      "src_data_site_manifesto",
+      "src_data_site_marqueeitems",
+      "src_data_site_site"
+    ],
+    "7": [
+      "src_data_knowledge",
+      "src_data_knowledge_knowledgelayer",
+      "src_data_knowledge_knowledgelayers"
+    ]
+  },
+  "cohesion": {
+    "0": 0.0625,
+    "1": 0.14193548387096774,
+    "2": 0.20229885057471264,
+    "3": 0.12648221343873517,
+    "4": 0.10526315789473684,
+    "5": 0.3888888888888889,
+    "6": 0.38095238095238093,
+    "7": 0.6666666666666666
+  },
+  "gods": [
+    {
+      "id": "src_components_icons_arrowupright",
+      "label": "ArrowUpRight()",
+      "degree": 22
+    },
+    {
+      "id": "src_components_reveal_reveal",
+      "label": "Reveal()",
+      "degree": 17
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "src_components_icons_baseprops",
+      "label": "baseProps()",
+      "degree": 11
+    },
+    {
+      "id": "ref_next",
+      "label": "next",
+      "degree": 11
+    },
+    {
+      "id": "src_components_section_heading_sectionheading",
+      "label": "SectionHeading()",
+      "degree": 10
+    },
+    {
+      "id": "src_app_page_home",
+      "label": "Home()",
+      "degree": 9
+    },
+    {
+      "id": "src_data_site_site",
+      "label": "site",
+      "degree": 9
+    },
+    {
+      "id": "src_components_icons_githubicon",
+      "label": "GithubIcon()",
+      "degree": 8
+    },
+    {
+      "id": "src_components_home_contact_section_contactsection",
+      "label": "ContactSection()",
+      "degree": 7
+    }
+  ],
+  "surprises": [
+    {
+      "source": "NotFound()",
+      "target": "ArrowUpRight()",
+      "source_files": [
+        "src/app/not-found.tsx",
+        "src/components/icons.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities; peripheral node `NotFound()` unexpectedly reaches hub `ArrowUpRight()`"
+    },
+    {
+      "source": "ContactSection()",
+      "target": "CopyEmail()",
+      "source_files": [
+        "src/components/home/contact-section.tsx",
+        "src/components/copy-email.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "ContactSection()",
+      "target": "GithubIcon()",
+      "source_files": [
+        "src/components/home/contact-section.tsx",
+        "src/components/icons.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "LabSection()",
+      "target": "CodeBlock()",
+      "source_files": [
+        "src/components/home/lab-section.tsx",
+        "src/components/code-block.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "CasePage()",
+      "target": "ArrowUpRight()",
+      "source_files": [
+        "src/app/cases/[slug]/page.tsx",
+        "src/components/icons.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
