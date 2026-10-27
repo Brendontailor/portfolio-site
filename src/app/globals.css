@@ -948,47 +948,56 @@ ol {
   gap: 18px;
 }
 
-.manifesto-mark {
+.manifesto-label .eyebrow {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.manifesto-quote {
   color: var(--accent);
   font-family: var(--font-plex), sans-serif;
-  font-size: 7rem;
-  line-height: 0.55;
-  opacity: 0.85;
+  font-size: 2.5rem;
+  line-height: 0.7;
+  margin-right: 4px;
+  display: inline-block;
 }
 
 .manifesto-copy blockquote {
-  max-width: 20ch;
+  max-width: 32ch;
   color: var(--fg);
-  font-size: clamp(2rem, 4.6vw, 4.6rem);
-  font-weight: 500;
-  letter-spacing: -0.055em;
-  line-height: 1.02;
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
 }
 
 .manifesto-highlight {
   color: var(--accent-ink);
   background-color: var(--accent);
-  padding-inline: 0.04em;
-  border-radius: 2px;
+  padding: 0.04em 0.08em;
+  border-radius: 3px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
 
-.manifesto-copy > p {
-  max-width: 52ch;
+.manifesto-subtitle {
+  max-width: 58ch;
   margin-top: 28px;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.75;
+  opacity: 0.8;
 }
 
 .manifesto-signature {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 28px;
   color: var(--accent);
   font-family: var(--font-jetbrains), monospace;
-  font-size: 10px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 

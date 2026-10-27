@@ -6,25 +6,31 @@ export function Manifesto() {
     <section className="manifesto-section" aria-labelledby="manifesto-title">
       <div className="container manifesto-grid">
         <Reveal className="manifesto-label">
-          <p className="eyebrow">Manifesto</p>
-          <span className="manifesto-mark" aria-hidden="true">
-            “
-          </span>
+          <p className="eyebrow">
+            <span className="manifesto-quote" aria-hidden="true">“</span>
+            {manifesto.kicker}
+          </p>
         </Reveal>
 
         <Reveal className="manifesto-copy" delay={90}>
           <blockquote id="manifesto-title">
-            {manifesto.opening}
-            <mark className="manifesto-highlight">tempo</mark>
-            {manifesto.continuation}
-            <mark className="manifesto-highlight">tempo</mark>
-            {manifesto.closing}
+            {manifesto.title.split(manifesto.highlight).map((part, i) => (
+              <span key={i}>
+                {part}
+                {i < 1 && (
+                  <mark className="manifesto-highlight">
+                    {manifesto.highlight}
+                  </mark>
+                )}
+              </span>
+            ))}
           </blockquote>
-          <p>
-            Não é sobre saber tudo. É sobre aprender rápido, testar, corrigir e
-            entregar algo que funcione. O resto é consequência.
+          <p className="manifesto-subtitle">
+            {manifesto.subtitle}
           </p>
-          <span className="manifesto-signature">— Brendon Tailor</span>
+          <span className="manifesto-signature">
+            {manifesto.signature}
+          </span>
         </Reveal>
       </div>
     </section>
