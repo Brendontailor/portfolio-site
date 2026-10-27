@@ -76,54 +76,17 @@ export async function POST(req: Request) {
 
   return Response.json(cliente, { status: 201 });
 }`,
-    size: "featured",
-  },
-  {
-    id: "03",
-    name: "Repository Pattern — Prisma",
-    file: "cliente.repository.ts",
-    label: "Camada de dados",
-    visibility: "Privado",
-    description:
-      "Abstração do Prisma para testes e troca de ORM. Isola queries complexas e transações em um só lugar.",
-    tags: ["TypeScript", "Prisma", "Repository Pattern", "Clean Architecture"],
-    code: `// repositories/cliente.repository.ts
-export class ClienteRepository {
-  constructor(private prisma: PrismaClient) {}
-
-  async findByEmail(email: string) {
-    return this.prisma.cliente.findUnique({
-      where: { email },
-    });
-  }
-
-  async createWithTransaction(
-    data: CreateClienteInput,
-    auditoria: AuditoriaInput
-  ) {
-    return this.prisma.$transaction(async (tx) => {
-      const cliente = await tx.cliente.create({ data });
-      await tx.auditoria.create({ data: { ...auditoria, clienteId: cliente.id } });
-      return cliente;
-    });
-  }
-
-  async search(filtro: ClienteFiltro) {
-    const where = this.buildWhere(filtro);
-    return this.prisma.cliente.findMany({ where });
-  }
-}`,
     size: "side",
   },
   {
-    id: "04",
-    name: "Auth — JWT com HttpOnly Cookie",
+    id: "03",
+    name: "Auth — JWT HttpOnly Cookie",
     file: "auth.ts",
     label: "Segurança",
     visibility: "Privado",
     description:
       "Login, refresh token rotativo e logout com cookies seguros. Sem localStorage, sem XSS. Padrão usado no Dropzone e PortCont.",
-    tags: ["Auth", "JWT", "Cookies", "Security", "Node.js"],
+    tags: ["Auth", "JWT", "Cookies", "Security"],
     code: `// lib/auth.ts
 export async function createSession(userId: string) {
   const accessToken = jwt.sign(
@@ -143,107 +106,16 @@ export async function createSession(userId: string) {
   });
 
   cookies().set("access_token", accessToken, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "lax",
-    maxAge: 60 * 15,
+    httpOnly: true, secure: true, sameSite: "lax", maxAge: 60 * 15
   });
   cookies().set("refresh_token", refreshToken, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 30,
+    httpOnly: true, secure: true, sameSite: "lax", maxAge: 60 * 60 * 24 * 30
   });
 }`,
     size: "side",
   },
   {
-    id: "05",
-    name: "Webhook — Idempotência",
-    file: "webhook.ts",
-    label: "Integrações",
-    visibility: "Privado",
-    description:
-      "Recebimento de webhooks externos (Stripe, WhatsApp, ERP) com chave de idempotência para evitar processamento duplicado.",
-    tags: ["Webhooks", "Idempotency", "Stripe", "Integrações"],
-    code: `// app/api/webhooks/stripe/route.ts
-export async function POST(req: Request) {
-  const signature = headers().get("stripe-signature")!;
-  const body = await req.text();
-
-  let event: Stripe.Event;
-  try {
-    event = stripe.webhooks.constructEvent(
-      body,
-      signature,
-      process.env.STRIPE_WEBHOOK_SECRET!
-    );
-  } catch (err) {
-    return Response.json({ error: "Invalid signature" }, { status: 400 });
-  }
-
-  const idempotencyKey = \`stripe:\${event.id}\`;
-  const exists = await redis.setnx(idempotencyKey, "1");
-  if (!exists) {
-    return Response.json({ received: true, duplicate: true });
-  }
-  await redis.expire(idempotencyKey, 86400);
-
-  switch (event.type) {
-    case "checkout.session.completed":
-      await handleCheckoutCompleted(event.data.object);
-      break;
-    case "invoice.payment_failed":
-      await handlePaymentFailed(event.data.object);
-      break;
-  }
-
-  return Response.json({ received: true });
-}`,
-    size: "small",
-  },
-  {
-    id: "06",
-    name: "Background Jobs — BullMQ",
-    file: "queue.ts",
-    label: "Processamento assíncrono",
-    visibility: "Privado",
-    description:
-      "Fila de jobs para tarefas pesadas: geração de relatórios, envio de e-mails, sincronização de ERPs. Com retry, backoff e métricas.",
-    tags: ["BullMQ", "Redis", "Background Jobs", "Observability"],
-    code: `// queues/relatorio.queue.ts
-export const relatorioQueue = new Queue("relatorios", {
-  connection: redis,
-  defaultJobOptions: {
-    attempts: 3,
-    backoff: { type: "exponential", delay: 5000 },
-    removeOnComplete: 100,
-    removeOnFail: 50,
-  },
-});
-
-relatorioQueue.process("gerar-pdf", async (job) => {
-  const { clienteId, periodo } = job.data;
-  const dados = await aggregateDados(clienteId, periodo);
-  const pdf = await renderPDF(dados);
-  await storage.upload(\`relatorios/\${clienteId}/\${periodo}.pdf\`, pdf);
-  await notifyClient(clienteId, { tipo: "relatorio_pronto", url: pdf.url });
-});
-
-// Agendamento cron
-export async function agendarRelatoriosMensais() {
-  for (const cliente of await getClientesAtivos()) {
-    await relatorioQueue.add(
-      "gerar-pdf",
-      { clienteId: cliente.id, periodo: previousMonth() },
-      { repeat: { pattern: "0 2 1 * *" } } // todo dia 1 às 02:00
-    );
-  }
-}`,
-    size: "wide",
-  },
-  {
-    id: "07",
+    id: "04",
     name: "Multi-tenant — Middleware",
     file: "middleware.ts",
     label: "Arquitetura SaaS",
@@ -252,42 +124,25 @@ export async function agendarRelatoriosMensais() {
       "Resolução de tenant por subdomínio/domínio customizado. Isolamento de dados no middleware antes de chegar nas rotas.",
     tags: ["Multi-tenant", "Next.js", "Middleware", "SaaS"],
     code: `// middleware.ts
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-
 export async function middleware(req: NextRequest) {
   const host = req.headers.get("host") || "";
   const tenant = await resolveTenant(host);
+  if (!tenant) return NextResponse.redirect(new URL("/404", req.url));
 
-  if (!tenant) {
-    return NextResponse.redirect(new URL("/404", req.url));
-  }
+  const headers = new Headers(req.headers);
+  headers.set("x-tenant-id", tenant.id);
+  headers.set("x-tenant-slug", tenant.slug);
 
-  const requestHeaders = new Headers(req.headers);
-  requestHeaders.set("x-tenant-id", tenant.id);
-  requestHeaders.set("x-tenant-slug", tenant.slug);
-
-  return NextResponse.next({
-    request: { headers: requestHeaders },
-  });
+  return NextResponse.next({ request: { headers } });
 }
 
-async function resolveTenant(host: string): Promise<Tenant | null> {
-  // 1. Subdomínio: cliente.app.com
-  const subdomain = host.split(".")[0];
-  if (subdomain !== "app" && subdomain !== "www") {
-    return prisma.tenant.findUnique({ where: { slug: subdomain } });
+async function resolveTenant(host: string) {
+  const sub = host.split(".")[0];
+  if (sub !== "app" && sub !== "www") {
+    return prisma.tenant.findUnique({ where: { slug: sub } });
   }
-
-  // 2. Domínio customizado: cliente.com.br
-  return prisma.tenant.findUnique({
-    where: { customDomain: host },
-  });
-}
-
-export const config = {
-  matcher: ["/dashboard/:path*", "/api/:path*"],
-};`,
+  return prisma.tenant.findUnique({ where: { customDomain: host } });
+}`,
     size: "small",
   },
 ];
