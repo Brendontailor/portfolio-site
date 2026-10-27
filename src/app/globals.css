@@ -1767,6 +1767,19 @@ ol {
   line-height: 1.8;
 }
 
+.about-closing {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--fg);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
 .about-principles {
   display: grid;
   margin-top: 4px;

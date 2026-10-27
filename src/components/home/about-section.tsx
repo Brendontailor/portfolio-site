@@ -54,23 +54,35 @@ export function AboutSection() {
 
           <Reveal className="about-bio" delay={110}>
             <p className="about-lede">
-              Desenvolvo sistemas full-stack há anos — do zero à operação real.
-              Minha especialidade: transformar operações caóticas em software que
-              roda sem supervisão constante.
+              Sou desenvolvedor full-stack e ex-militar, com 7 anos de serviço.
+              Atualmente, curso Análise e Desenvolvimento de Sistemas (ADS) no
+              Senac, aprofundando minha formação em tecnologia enquanto desenvolvo
+              soluções para problemas reais.
             </p>
             <p>
-              Cada case abaixo prova um ângulo diferente:
+              Minha trajetória combina disciplina, formação técnica e experiência
+              prática. Trabalho da arquitetura à implementação, construindo
+              sistemas que integram interfaces, APIs, bancos de dados, automações
+              e inteligência artificial.
             </p>
-            <ul className="proof-list">
-              <li><strong>Sah Açaí & Cia</strong> — loja real pedindo pelo WhatsApp; backend valida preço, estoque e entrega link só depois de gravar o pedido no PostgreSQL.</li>
-              <li><strong>Monky Food</strong> — plataforma white-label multi-tenant: uma base, isolamento por <code>empresaId</code>, vitrine resolve pelo domínio, painel pela sessão.</li>
-              <li><strong>Monky Tech</strong> — PDV, estoque, compras, financeiro e auditoria multiempresa com wrapper Android pro balcão.</li>
-              <li><strong>RoutePilot</strong> — PWA offline com 120k endereços locais, busca fuzzy, regiões por polígono, rota com revisão humana e impressão A4.</li>
-              <li><strong>PortCont</strong> — conciliação de bases: PDF, XLSX, CSV entram no mesmo pipeline; fuzzy matching separa o certo do &ldquo;parecido&rdquo; pra revisão humana.</li>
-              <li><strong>Dropzone</strong> — e-commerce editorial com catálogo, carrinho, favoritos, auth, admin, avaliações, WhatsApp e módulos de IA (colaboração com Leonardo Rosler).</li>
-            </ul>
             <p>
-              Stack do dia a dia: TypeScript, React, Next.js, Node.js, Express, Prisma, PostgreSQL, Tailwind, Docker, Git.
+              Meu foco é transformar processos complexos em software confiável,
+              modular e preparado para crescer. Valorizo código organizado,
+              decisões técnicas fundamentadas, segurança e soluções que funcionem
+              na operação real.
+            </p>
+            <p>
+              Cada projeto do meu portfólio representa um desafio diferente, com
+              problemas concretos, decisões de engenharia e soluções desenvolvidas
+              para atender a necessidades específicas.
+            </p>
+            <p className="about-closing">
+              Disciplina para executar. Conhecimento para evoluir. Tecnologia para
+              resolver problemas reais.
+            </p>
+            <p>
+              Stack do dia a dia: TypeScript, React, Next.js, Node.js, Express,
+              Prisma, PostgreSQL, Tailwind, Docker, Git.
             </p>
           </Reveal>
         </div>
