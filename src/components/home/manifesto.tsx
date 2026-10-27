@@ -2,6 +2,10 @@ import { manifesto } from "@/data/site";
 import { Reveal } from "@/components/reveal";
 
 export function Manifesto() {
+  const titleParts = manifesto.title.split(manifesto.highlight);
+  const beforeHighlight = titleParts[0];
+  const afterHighlight = titleParts[1] || "";
+
   return (
     <section className="manifesto-section" aria-labelledby="manifesto-title">
       <div className="container manifesto-grid">
@@ -14,16 +18,11 @@ export function Manifesto() {
 
         <Reveal className="manifesto-copy" delay={90}>
           <blockquote id="manifesto-title">
-            {manifesto.title.split(manifesto.highlight).map((part, i) => (
-              <span key={i}>
-                {part}
-                {i < 1 && (
-                  <mark className="manifesto-highlight">
-                    {manifesto.highlight}
-                  </mark>
-                )}
-              </span>
-            ))}
+            <span className="manifesto-title-line">
+              {beforeHighlight}
+              <mark className="manifesto-highlight">{manifesto.highlight}</mark>
+              <span className="manifesto-title-suffix">{afterHighlight}</span>
+            </span>
           </blockquote>
           <p className="manifesto-subtitle">
             {manifesto.subtitle}

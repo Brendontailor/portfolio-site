@@ -969,25 +969,36 @@ ol {
   font-size: clamp(2.5rem, 5.5vw, 5.5rem);
   font-weight: 700;
   letter-spacing: -0.045em;
-  line-height: 1.05;
+  line-height: 1.15;
+}
+
+.manifesto-title-line {
+  display: inline;
+  line-height: 1.15;
 }
 
 .manifesto-highlight {
   color: var(--accent-ink);
   background-color: var(--accent);
-  padding: 0.04em 0.08em;
+  padding: 0.06em 0.1em;
   border-radius: 3px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  line-height: 1.15;
+}
+
+.manifesto-title-suffix {
+  color: var(--fg);
+  line-height: 1.15;
 }
 
 .manifesto-subtitle {
   max-width: 58ch;
   margin-top: 28px;
-  color: var(--muted);
+  margin-bottom: 8px;
+  color: #a1a1aa;
   font-size: clamp(1rem, 1.3vw, 1.15rem);
   line-height: 1.75;
-  opacity: 0.8;
 }
 
 .manifesto-signature {
