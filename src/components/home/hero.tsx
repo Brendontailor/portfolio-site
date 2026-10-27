@@ -64,8 +64,8 @@ export function Hero() {
               <BrowserFrame url="routepilot.app" label="CASE 01">
                 <div className="hero-main-media">
                   <Image
-                    src="/images/case-routepilot-home.webp"
-                    alt="Dashboard do Route Pilot com mapa de rotas otimizadas"
+                    src="/images/case-routepilot-map.webp"
+                    alt="Mapa de rotas do Route Pilot com localidades e regiões operacionais"
                     fill
                     loading="eager"
                     fetchPriority="high"
