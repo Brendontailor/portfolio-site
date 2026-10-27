@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -35,8 +36,15 @@ export function AboutSection() {
               <span className="eyebrow">Brendon Tailor</span>
               <span className="about-portrait-code">BT / 2026</span>
             </div>
-            <div className="about-monogram" aria-hidden="true">
-              BT
+            <div className="about-portrait-image" aria-hidden="true">
+              <Image
+                src="/images/brendon-portrait.jpg"
+                alt="Brendon Tailor, desenvolvedor full-stack"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
             </div>
             <div className="about-portrait-bottom">
               <span>Full-stack developer</span>
