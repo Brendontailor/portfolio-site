@@ -14,28 +14,63 @@ export type LabItem = {
 export const labItems: LabItem[] = [
   {
     id: "01",
-    name: "AED2 — Labirinto",
-    file: "labirinto.ts",
-    label: "Estudo de algoritmos",
+    name: "Rate Limiting — Sliding Window",
+    file: "rate-limit.ts",
+    label: "Middleware + Redis",
     visibility: "Público",
     description:
-      "Estudo público de estruturas de dados e caminhos em grid. O exercício vira laboratório para comparar BFS, DFS e critérios de custo.",
-    tags: ["Algoritmos", "Estruturas de dados", "Pathfinding", "TypeScript"],
-    href: "https://github.com/Brendontailor/aed2_labirinto",
-    code: `// labirinto.ts
-const queue = [start];
-const seen = new Set([key(start)]);
+      "Rate limiter distribuído com janela deslizante. Protege APIs públicas e autenticadas contra abuso, com chaves por IP, usuário ou tenant. Usado no PortCont e RoutePilot.",
+    tags: ["Rate Limiting", "Redis", "Middleware", "Next.js", "Security"],
+    href: "https://github.com/Brendontailor/portfolio-site/tree/main/src/lib/rate-limit",
+    code: `// lib/rate-limit.ts
+import { Redis } from "@upstash/redis";
+import { headers } from "next/headers";
 
-while (queue.length) {
-  const cell = queue.shift()!;
-  if (isExit(cell)) return pathTo(cell);
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
-  for (const next of neighbors(cell)) {
-    if (!seen.has(key(next))) {
-      seen.add(key(next));
-      queue.push(next);
-    }
+export async function rateLimit(
+  key: string,
+  limit: number,
+  windowMs: number
+): Promise<{ allowed: boolean; remaining: number; resetMs: number }> {
+  const now = Date.now();
+  const windowStart = now - windowMs;
+  const redisKey = \`rl:\${key}\`;
+
+  const pipe = redis.pipeline();
+  pipe.zremrangebyscore(redisKey, 0, windowStart);
+  pipe.zadd(redisKey, { score: now, member: \`\${now}:\${Math.random()}\` });
+  pipe.zcard(redisKey);
+  pipe.pexpire(redisKey, windowMs);
+  const results = await pipe.exec();
+
+  const current = (results[2] as number) || 0;
+  const allowed = current <= limit;
+  const remaining = Math.max(0, limit - current);
+  const resetMs = windowMs;
+
+  return { allowed, remaining, resetMs };
+}
+
+// Uso no middleware ou route handler
+export async function withRateLimit(
+  req: Request,
+  limit = 60,
+  windowMs = 60_000
+) {
+  const ip = headers().get("x-forwarded-for")?.split(",")[0]?.trim() || "anon";
+  const { allowed, remaining, resetMs } = await rateLimit(ip, limit, windowMs);
+
+  if (!allowed) {
+    return Response.json(
+      { error: "Rate limit exceeded", retryAfter: Math.ceil(resetMs / 1000) },
+      { status: 429, headers: { "Retry-After": String(Math.ceil(resetMs / 1000)) } }
+    );
   }
+  return null; // continua
 }`,
     size: "side",
   },
@@ -144,5 +179,57 @@ async function resolveTenant(host: string) {
   return prisma.tenant.findUnique({ where: { customDomain: host } });
 }`,
     size: "small",
+  },
+  {
+    id: "05",
+    name: "Git Workflow — Conventional Commits + CI",
+    file: ".github/workflows/ci.yml",
+    label: "GitHub Actions",
+    visibility: "Público",
+    description:
+      "Pipeline completa: lint, type-check, testes, build e deploy preview. Commits semânticos (Conventional Commits), versionamento automático, changelog gerado. Padrão usado em todos os projetos.",
+    tags: ["Git", "GitHub Actions", "CI/CD", "Conventional Commits", "Release"],
+    href: "https://github.com/Brendontailor/portfolio-site/blob/main/.github/workflows/ci.yml",
+    code: `# .github/workflows/ci.yml
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: 'npm' }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run type-check
+      - run: npm run test
+      - run: npm run build
+
+  deploy-preview:
+    needs: lint-and-test
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: amondnet/vercel-action@v25
+        with: { vercel-token: \${{ secrets.VERCEL_TOKEN }}, vercel-org-id: \${{ secrets.VERCEL_ORG_ID }}, vercel-project-id: \${{ secrets.VERCEL_PROJECT_ID }}, vercel-args: '--prod=false' }
+
+  release:
+    needs: lint-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, registry-url: 'https://registry.npmjs.org' }
+      - run: npm ci && npm run build
+      - run: npx semantic-release
+        env: { GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}, NPM_TOKEN: \${{ secrets.NPM_TOKEN } }`,
+    size: "side",
   },
 ];
