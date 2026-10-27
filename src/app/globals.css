@@ -2214,6 +2214,32 @@ ol {
   line-height: 1.6;
 }
 
+.case-sidebar-creator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.case-sidebar-creator:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--surface-2);
+}
+
 .case-content {
   min-width: 0;
 }
@@ -2889,6 +2915,87 @@ ol {
   .contact-copy h2 {
     font-size: clamp(2.5rem, 11vw, 4rem);
   }
+}
+
+/* Legal page */
+
+.legal-page {
+  padding-top: var(--header);
+  padding-bottom: clamp(80px, 12vw, 140px);
+}
+
+.legal-hero {
+  padding-top: 56px;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-hero h1 {
+  color: var(--fg);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+.legal-updated {
+  margin-top: 12px;
+  color: var(--muted);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.legal-content {
+  max-width: 72ch;
+}
+
+.legal-content section + section {
+  margin-top: 32px;
+}
+
+.legal-content h2 {
+  color: var(--fg);
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.legal-content p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.legal-content a {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.legal-content a:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+}
+
+.legal-content strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.legal-foot {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: #5e646a;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: reduce) {

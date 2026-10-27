@@ -8,6 +8,7 @@ import {
   GithubIcon,
 } from "@/components/icons";
 import { cases, getCase, getNextCase } from "@/data/cases";
+import { site } from "@/data/site";
 
 export const instant = false;
 
@@ -156,6 +157,18 @@ export default async function CasePage({ params }: CasePageProps) {
             <span>Stack</span>
             <strong>{study.stack[0]?.items.join(" · ")}</strong>
           </div>
+
+          {study.type === "Produto próprio" && site.portfolioUrl ? (
+            <a
+              href={site.portfolioUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="case-sidebar-creator"
+            >
+              <span>Criado por</span>
+              <ArrowUpRight size={12} />
+            </a>
+          ) : null}
 
           {study.links?.length ? (
             <div className="case-sidebar-links">

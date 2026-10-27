@@ -8,6 +8,7 @@ export const site = {
   location: "Brasil · remoto",
   availability: "Disponível para novos projetos",
   url: "https://brendontailor.vercel.app",
+  portfolioUrl: "https://portfolio-site-snowy-rho-21.vercel.app",
   description:
     "Portfólio de Brendon Tailor, desenvolvedor full-stack. SaaS, sistemas sob medida e produtos digitais para operações reais.",
   nav: [
