@@ -937,9 +937,15 @@ ol {
 
 .manifesto-grid {
   display: grid;
-  grid-template-columns: 2fr 8fr;
+  grid-template-columns: 1fr;
   gap: 32px;
   align-items: start;
+}
+
+@media (min-width: 768px) {
+  .manifesto-grid {
+    grid-template-columns: 2fr 8fr;
+  }
 }
 
 .manifesto-label {
@@ -964,32 +970,32 @@ ol {
 }
 
 .manifesto-copy blockquote {
-  max-width: 32ch;
+  max-width: 42ch;
   color: var(--fg);
-  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  font-size: clamp(2.2rem, 4.8vw, 5rem);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1.15;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
 }
 
 .manifesto-title-line {
   display: inline;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .manifesto-highlight {
   color: var(--accent-ink);
   background-color: var(--accent);
-  padding: 0.06em 0.1em;
+  padding: 0.08em 0.12em;
   border-radius: 3px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .manifesto-title-suffix {
   color: var(--fg);
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .manifesto-subtitle {
