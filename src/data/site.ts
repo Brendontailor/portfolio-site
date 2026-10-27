@@ -8,6 +8,7 @@ export const site = {
   location: "Brasil · remoto",
   availability: "Disponível para novos projetos",
   url: "https://brendontailor.vercel.app",
+  portfolioUrl: "https://portfolio-site-snowy-rho-21.vercel.app",
   description:
     "Portfólio de Brendon Tailor, desenvolvedor full-stack. SaaS, sistemas sob medida e produtos digitais para operações reais.",
   nav: [
@@ -24,9 +25,11 @@ export const site = {
 } as const;
 
 export const manifesto = {
-  opening: "Não há nada que eu não possa fazer com o ",
-  continuation: ". E tudo que me proponho a fazer, com o ",
-  closing: " me torno o melhor.",
+  kicker: "MANIFESTO",
+  title: "Qualquer tecnologia se aprende. Qualquer sistema se constrói. O compromisso é um só: entregar o melhor resultado.",
+  subtitle: "Não me meço pelo que já sei, mas pela velocidade com que aprendo, resolvo e entrego.",
+  signature: "BRENDON TAILOR",
+  highlight: "entregar o melhor resultado",
 } as const;
 export const marqueeItems = [
   "SaaS multi-tenant",

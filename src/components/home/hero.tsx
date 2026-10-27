@@ -1,19 +1,14 @@
 import Image from "next/image";
 import { site } from "@/data/site";
-import { cases } from "@/data/cases";
 import { ArrowDown, ArrowUpRight } from "@/components/icons";
 import { BrowserFrame } from "@/components/browser-frame";
+import { Reveal } from "@/components/reveal";
 
 export function Hero() {
-  const stats = [
-    { value: String(cases.length).padStart(2, "0"), label: "cases" },
-    ...site.stats,
-  ];
-
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="container hero-grid">
-        <div className="hero-copy">
+        <Reveal className="hero-copy">
           <p className="hero-eyebrow">
             <span className="status-dot" aria-hidden="true" />
             {site.availability}
@@ -32,13 +27,13 @@ export function Hero() {
             <strong>Brendon Tailor</strong> — desenvolvedor full-stack que entrega sistemas
             completos: do modelo de dados à interface, da arquitetura à operação.
             <br />
-            {cases.length} cases reais comprovam: SaaS multi-tenant, plataformas white-label,
+            Cinco cases reais comprovam: SaaS multi-tenant, plataformas white-label,
             PWA offline com mapas, conciliação de bases e e-commerce editorial.
           </p>
 
           <div className="hero-actions">
             <a href="#cases" className="btn btn-primary">
-              Ver os {cases.length} cases
+              Ver os 5 cases
               <ArrowUpRight size={16} />
             </a>
             <a href="#contato" className="btn btn-ghost">
@@ -47,7 +42,7 @@ export function Hero() {
           </div>
 
           <div className="hero-meta">
-            {stats.map((stat) => (
+            {site.stats.map((stat) => (
               <div key={stat.label} className="hero-meta-item">
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
@@ -59,22 +54,18 @@ export function Hero() {
             Role para ver os cases
             <ArrowDown size={14} />
           </a>
-        </div>
+        </Reveal>
 
-        <div className="hero-visual-wrap">
-          <div
-            className="hero-visual"
-            role="img"
-            aria-label="Prévia de projetos reais"
-          >
+        <Reveal className="hero-visual-wrap" delay={140}>
+          <div className="hero-visual" aria-label="Prévia de projetos reais">
             <div className="hero-visual-glow" aria-hidden="true" />
 
             <div className="hero-main-frame">
-              <BrowserFrame url="monky.food" label="CASE 02">
+              <BrowserFrame url="routepilot.app" label="CASE 01">
                 <div className="hero-main-media">
                   <Image
-                    src="/images/case-monky-food.webp"
-                    alt="Vitrine da Sah Açaí & Cia, primeira operação da Monky Food"
+                    src="/images/case-routepilot.webp"
+                    alt="Dashboard do Route Pilot com mapa de rotas otimizadas"
                     fill
                     loading="eager"
                     fetchPriority="high"
@@ -92,16 +83,16 @@ export function Hero() {
               </div>
               <div className="hero-sub-media">
                 <Image
-                  src="/images/case-sah-acai.webp"
-                  alt="Copo de açaí da Sah Açaí & Cia"
+                  src="/images/case-routepilot-map.png"
+                  alt="Mapa de rotas do Route Pilot"
                   fill
                   sizes="(max-width: 900px) 45vw, 18vw"
                   className="object-cover"
                 />
               </div>
               <div className="hero-sub-bottom">
-                <span>Sah Açaí &amp; Cia</span>
-                <span>food retail</span>
+                <span>Route Pilot</span>
+                <span>logistics SaaS</span>
               </div>
             </div>
 
@@ -126,7 +117,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

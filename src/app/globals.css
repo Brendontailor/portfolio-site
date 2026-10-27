@@ -83,18 +83,6 @@ body::after {
   outline-offset: 3px;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -948,12 +936,16 @@ ol {
 }
 
 .manifesto-grid {
-  max-width: none;
-  padding-inline: 8px;
   display: grid;
-  grid-template-columns: minmax(180px, 20.3vw) minmax(0, 1fr);
-  gap: 0;
+  grid-template-columns: 1fr;
+  gap: 32px;
   align-items: start;
+}
+
+@media (min-width: 768px) {
+  .manifesto-grid {
+    grid-template-columns: 2fr 8fr;
+  }
 }
 
 .manifesto-label {
@@ -962,47 +954,67 @@ ol {
   gap: 18px;
 }
 
-.manifesto-mark {
+.manifesto-label .eyebrow {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.manifesto-quote {
   color: var(--accent);
   font-family: var(--font-plex), sans-serif;
-  font-size: 7rem;
-  line-height: 0.55;
-  opacity: 0.85;
+  font-size: 2.5rem;
+  line-height: 0.7;
+  margin-right: 4px;
+  display: inline-block;
 }
 
 .manifesto-copy blockquote {
-  max-width: 20ch;
+  max-width: 42ch;
   color: var(--fg);
-  font-size: clamp(2rem, 5vw, 4.8rem);
-  font-weight: 500;
-  letter-spacing: -0.055em;
-  line-height: 1.02;
+  font-size: clamp(2.2rem, 4.8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.manifesto-title-line {
+  display: inline;
+  line-height: 1.2;
 }
 
 .manifesto-highlight {
   color: var(--accent-ink);
   background-color: var(--accent);
-  padding-inline: 0.045em;
-  border-radius: 0;
+  padding: 0.08em 0.12em;
+  border-radius: 3px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  line-height: 1.2;
 }
 
-.manifesto-copy > p {
-  max-width: 52ch;
+.manifesto-title-suffix {
+  color: var(--fg);
+  line-height: 1.2;
+}
+
+.manifesto-subtitle {
+  max-width: 58ch;
   margin-top: 28px;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.7;
+  margin-bottom: 8px;
+  color: #a1a1aa;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.75;
 }
 
 .manifesto-signature {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 28px;
   color: var(--accent);
   font-family: var(--font-jetbrains), monospace;
-  font-size: 10px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -1336,10 +1348,18 @@ ol {
 
 .knowledge-row {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
+  grid-template-columns: 52px minmax(0, 1fr) 24px;
   gap: 20px;
   padding: 26px 0;
   border-bottom: 1px solid var(--line);
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease;
+}
+
+.knowledge-row:hover {
+  background: var(--surface);
+  padding-inline: 16px;
 }
 
 .knowledge-num {
@@ -1364,6 +1384,19 @@ ol {
   color: var(--muted);
   font-size: 0.94rem;
   line-height: 1.65;
+}
+
+.knowledge-arrow {
+  padding-top: 3px;
+  color: var(--muted);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.knowledge-row:hover .knowledge-arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
 }
 
 .chips {
@@ -1698,19 +1731,19 @@ ol {
   color: var(--accent);
 }
 
-.about-monogram {
+.about-portrait-image {
   position: relative;
   z-index: 1;
-  display: flex;
   flex: 1;
-  align-items: center;
-  justify-content: center;
-  color: var(--fg);
-  font-family: var(--font-jetbrains), monospace;
-  font-size: clamp(7rem, 15vw, 12rem);
-  font-weight: 500;
-  letter-spacing: -0.14em;
-  line-height: 0.8;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.about-portrait-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about-bio {
@@ -2207,6 +2240,32 @@ ol {
   line-height: 1.6;
 }
 
+.case-sidebar-creator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.case-sidebar-creator:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--surface-2);
+}
+
 .case-content {
   min-width: 0;
 }
@@ -2608,7 +2667,6 @@ ol {
   .manifesto-grid {
     grid-template-columns: 1fr;
     gap: 18px;
-    padding-inline: var(--gutter);
   }
 
   .manifesto-mark {
@@ -2771,13 +2829,22 @@ ol {
     gap: 12px;
   }
 
+  .knowledge-arrow {
+    display: none;
+  }
+
+  .knowledge-row:hover {
+    padding-inline: 10px;
+  }
+
   .about-portrait {
     min-height: 380px;
     aspect-ratio: 4 / 5;
   }
 
-  .about-monogram {
-    font-size: clamp(6rem, 28vw, 9rem);
+  .about-portrait-image {
+    flex: 1;
+    width: 100%;
   }
 
   .contact-section {
@@ -2875,6 +2942,87 @@ ol {
   .contact-copy h2 {
     font-size: clamp(2.5rem, 11vw, 4rem);
   }
+}
+
+/* Legal page */
+
+.legal-page {
+  padding-top: var(--header);
+  padding-bottom: clamp(80px, 12vw, 140px);
+}
+
+.legal-hero {
+  padding-top: 56px;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-hero h1 {
+  color: var(--fg);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+.legal-updated {
+  margin-top: 12px;
+  color: var(--muted);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.legal-content {
+  max-width: 72ch;
+}
+
+.legal-content section + section {
+  margin-top: 32px;
+}
+
+.legal-content h2 {
+  color: var(--fg);
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.legal-content p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.legal-content a {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.legal-content a:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+}
+
+.legal-content strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.legal-foot {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: #5e646a;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: reduce) {

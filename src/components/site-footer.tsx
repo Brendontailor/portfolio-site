@@ -29,6 +29,9 @@ export function SiteFooter() {
             Cases
             <ArrowUpRight size={14} />
           </Link>
+          <Link href="/termos">
+            Termos
+          </Link>
           <a href="#main">Topo ↑</a>
         </div>
 
