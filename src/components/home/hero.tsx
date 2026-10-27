@@ -64,7 +64,7 @@ export function Hero() {
               <BrowserFrame url="routepilot.app" label="CASE 01">
                 <div className="hero-main-media">
                   <Image
-                    src="/images/case-routepilot.webp"
+                    src="/images/case-routepilot-home.webp"
                     alt="Dashboard do Route Pilot com mapa de rotas otimizadas"
                     fill
                     loading="eager"
@@ -83,16 +83,16 @@ export function Hero() {
               </div>
               <div className="hero-sub-media">
                 <Image
-                  src="/images/case-routepilot-map.png"
-                  alt="Mapa de rotas do Route Pilot"
+                  src="/images/case-sah-acai.webp"
+                  alt="Copo de açaí da Sah Açaí & Cia"
                   fill
                   sizes="(max-width: 900px) 45vw, 18vw"
                   className="object-cover"
                 />
               </div>
               <div className="hero-sub-bottom">
-                <span>Route Pilot</span>
-                <span>logistics SaaS</span>
+                <span>Sah Açaí & Cia</span>
+                <span>food retail</span>
               </div>
             </div>
 
