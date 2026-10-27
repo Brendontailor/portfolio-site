@@ -37,7 +37,7 @@ while (queue.length) {
     }
   }
 }`,
-    size: "featured",
+    size: "side",
   },
   {
     id: "02",
