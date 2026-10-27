@@ -92,7 +92,15 @@ export function SiteHeader() {
     <>
       <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <div className="container header-inner">
-          <Link href="/" className="brand" aria-label="Brendon Tailor — início">
+          <Link
+              href="/"
+              className="brand"
+              aria-label="Brendon Tailor — topo da página"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
             <BrandMark />
             <span className="brand-text">
               <span className="brand-name">Brendon Tailor</span>
@@ -139,7 +147,15 @@ export function SiteHeader() {
       >
         <div className="container mobile-menu-inner">
           <div className="mobile-menu-top">
-            <Link href="/" className="brand" onClick={closeMenu}>
+            <Link
+              href="/"
+              className="brand"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                closeMenu();
+              }}
+            >
               <BrandMark />
               <span className="brand-text">
                 <span className="brand-name">Brendon Tailor</span>
@@ -181,6 +197,7 @@ export function SiteHeader() {
 
           <div className="mobile-menu-footer">
             <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
             <a href={site.github} target="_blank" rel="noreferrer">
               GitHub
               <ArrowUpRight size={14} />

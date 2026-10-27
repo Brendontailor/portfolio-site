@@ -33,6 +33,10 @@ export function ContactSection() {
               Enviar um e-mail
               <ArrowUpRight size={16} />
             </a>
+            <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="btn btn-ghost">
+              <span className="visually-hidden">Ligar </span>
+              {site.phone}
+            </a>
             <a
               href={site.github}
               target="_blank"
@@ -52,6 +56,7 @@ export function ContactSection() {
               {site.availability}
             </span>
             <span>{site.location}</span>
+            <span>{site.phone}</span>
           </div>
         </Reveal>
 

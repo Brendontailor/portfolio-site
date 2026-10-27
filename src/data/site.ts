@@ -4,6 +4,7 @@ export const site = {
   role: "Desenvolvedor full-stack",
   company: "Brendon Tailor",
   email: "brendontailor040@gmail.com",
+  phone: "+55 53 99128-7869",
   github: "https://github.com/Brendontailor",
   location: "Brasil · remoto",
   availability: "Disponível para novos projetos",
