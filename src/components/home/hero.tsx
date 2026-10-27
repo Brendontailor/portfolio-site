@@ -61,11 +61,11 @@ export function Hero() {
             <div className="hero-visual-glow" aria-hidden="true" />
 
             <div className="hero-main-frame">
-              <BrowserFrame url="monky.food" label="CASE 02">
+              <BrowserFrame url="routepilot.app" label="CASE 01">
                 <div className="hero-main-media">
                   <Image
-                    src="/images/case-monky-food.webp"
-                    alt="Vitrine da Sah Açaí & Cia, primeira operação da Monky Food"
+                    src="/images/case-routepilot.webp"
+                    alt="Dashboard do Route Pilot com mapa de rotas otimizadas"
                     fill
                     loading="eager"
                     fetchPriority="high"
@@ -83,16 +83,16 @@ export function Hero() {
               </div>
               <div className="hero-sub-media">
                 <Image
-                  src="/images/case-sah-acai.webp"
-                  alt="Copo de açaí da Sah Açaí & Cia"
+                  src="/images/case-routepilot-map.png"
+                  alt="Mapa de rotas do Route Pilot"
                   fill
                   sizes="(max-width: 900px) 45vw, 18vw"
                   className="object-cover"
                 />
               </div>
               <div className="hero-sub-bottom">
-                <span>Sah Açaí &amp; Cia</span>
-                <span>food retail</span>
+                <span>Route Pilot</span>
+                <span>logistics SaaS</span>
               </div>
             </div>
 
