@@ -1,0 +1,73 @@
+name: Validar Estrutura
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  validar:
+    name: Estrutura e Integridade
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validar estrutura obrigatoria
+        run: node scripts/validar-estrutura.js
+
+      - name: Validar exemplos de arquitetura
+        run: node -e "require('./scripts/validar-estrutura.js').validarExemplos()"
+
+      - name: Verificar links relativos quebrados
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const raiz = process.cwd();
+          const ignorar = /(^|\/)(node_modules|\.git|graphify-out)\//;
+          let quebrados = 0;
+
+          function varrer(dir) {
+            for (const item of fs.readdirSync(dir, { withFileTypes: true })) {
+              const completo = path.join(dir, item.name);
+              const relativo = path.relative(raiz, completo).replace(/\\/g, '/');
+              if (ignorar.test(relativo + '/')) continue;
+              if (item.isDirectory()) { varrer(completo); continue; }
+              if (!item.name.endsWith('.md')) continue;
+
+              const texto = fs.readFileSync(completo, 'utf8');
+              for (const match of texto.matchAll(/\]\(([^)#][^)]*)\)/g)) {
+                const alvo = match[1];
+                if (/^(https?:|mailto:|#)/.test(alvo)) continue;
+                const limpo = decodeURIComponent(alvo.split('#')[0]);
+                if (!fs.existsSync(path.resolve(path.dirname(completo), limpo))) {
+                  console.log(`LINK QUEBRADO: ${relativo} -> ${alvo}`);
+                  quebrados++;
+                }
+              }
+            }
+          }
+
+          varrer(raiz);
+          if (quebrados > 0) {
+            console.error(`\n${quebrados} link(s) relativo(s) quebrado(s).`);
+            process.exit(1);
+          }
+          console.log('OK: nenhum link relativo quebrado.');
+          NODE
+
+      - name: Verificar segredos acidentais
+        run: |
+          if git grep -nEI '(AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|-----BEGIN (RSA|OPENSSH|EC) PRIVATE KEY-----|sk-[A-Za-z0-9]{20,})' -- ':!node_modules'; then
+            echo "Segredo detectado em arquivo versionado."
+            exit 1
+          fi
+          echo "OK: nenhum segredo detectado."
