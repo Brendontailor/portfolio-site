@@ -7,11 +7,19 @@ const path = require('path');
 const ESTRUTURA_OBRIGATORIA = {
   // Arquivos raiz
   'AGENTS.md': 'file',
+  'AGENTS.en.md': 'file',
   'README.md': 'file',
   'CHANGELOG.md': 'file',
   'CONTRIBUTING.md': 'file',
   '.gitignore': 'file',
   '.editorconfig': 'file',
+  'INDEX.md': 'file',
+  'SKILLS-CATALOG.md': 'file',
+  'SKILLS-SELECTION-MATRIX.md': 'file',
+  'TOOLS-AND-MCP.md': 'file',
+  'ORCHESTRATOR.md': 'file',
+  'INTERVIEW.md': 'file',
+  'ARCHITECTURE.md': 'file',
 
   // Diretórios principais
   'docs': 'dir',
@@ -67,12 +75,13 @@ const ESTRUTURA_OBRIGATORIA = {
   'templates/REGISTRO-INCIDENTE.md': 'file',
   'templates/DIVIDA-TECNICA.md': 'file',
 
-  // Skills locais (7)
+  // Skills locais (8)
   '.opencode/skills/entrevista-orquestradora/SKILL.md': 'file',
   '.opencode/skills/planejamento-de-tarefas/SKILL.md': 'file',
   '.opencode/skills/analise-de-legado/SKILL.md': 'file',
   '.opencode/skills/revisao-de-interface/SKILL.md': 'file',
   '.opencode/skills/auditoria-de-seguranca/SKILL.md': 'file',
+  '.opencode/skills/seguranca-continua/SKILL.md': 'file',
   '.opencode/skills/testes-com-roteiro/SKILL.md': 'file',
   '.opencode/skills/revisao-final/SKILL.md': 'file',
 
