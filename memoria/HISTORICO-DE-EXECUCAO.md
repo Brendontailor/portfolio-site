@@ -69,3 +69,4 @@
 - **Validação**: `npm run check:content` OK; `npm run lint` sem erros; `npm run build` OK (15 páginas); `/cv` conferida por texto no navegador (sem overflow)
 - **Push**: autorizado pelo autor ("termine e faça o push") — `555905e..cac775f` enviado para `origin/main`
 - **CI corrigido**: a primeira execução do workflow "Validar" falhou em `check:content` porque o runner usava Node 20 (sem type stripping para importar `src/data/cases.ts`). Workflow atualizado para `node-version: '24'`.
+- **Resultado final**: run `43945376449` verde (conteúdo, lint, build, segredos). Deploy conferido em `https://portfolio-site-brendont.vercel.app`: 5 cases sem Monky Food, `/cv` com RGSUL Internet/Fiberschool/nome completo/inglês/CLT-PJ, PDF oficial de 1 página (79.721 bytes) e `/cases/routepilot` com a demo pública.

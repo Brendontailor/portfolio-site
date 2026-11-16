@@ -6,10 +6,10 @@
 
 ## Ação Imediata
 
-1. Push autorizado pelo autor: enviar os commits (P0 do domínio público + revisão dos cases + currículo alinhado) para `origin/main`.
-2. Conferir o workflow "Validar" (conteúdo, lint, build, segredos) no GitHub e o deploy da Vercel em `https://portfolio-site-brendont.vercel.app`.
-3. Depois do deploy, verificar: 5 cases na home (sem Monky Food), `/cv` com RGSUL Internet e o PDF de 1 página, `/cases/routepilot` com a demo pública.
-4. Atualizar a descrição do vídeo no YouTube (ainda aponta para o domínio antigo).
+1. ✅ Push feito (`origin/main` sincronizado) — CI "Validar" **verde** (run 43945376449) e deploy da Vercel conferido: 5 cases sem Monky Food, `/cv` com RGSUL Internet e PDF de 1 página, `/cases/routepilot` com a demo pública.
+2. Atualizar a descrição do vídeo no YouTube (ainda aponta para o domínio antigo).
+3. Preencher site/local no perfil do GitHub (token `gh` sem escopo `user`).
+4. Próxima frente sugerida: "Meu papel" + métricas antes/depois em cada case (precisa de informação do autor).
 
 ## Pendências que dependem de terceiros
 

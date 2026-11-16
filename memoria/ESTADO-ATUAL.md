@@ -89,8 +89,10 @@ Pendências: commit/push do P0; atualizar descrição do vídeo no YouTube (link
 
 ### Estado do Git
 
-- Branch `main`, **sincronizada com `origin/main`** após o push autorizado (`555905e..cac775f`).
+- Branch `main`, **sincronizada com `origin/main`** após o push autorizado (`555905e..cac775f` + `6925cff`).
 - Workflow "Validar" corrigido: `node-version: '24'` (com Node 20 o `check:content` não conseguia importar os dados em TypeScript).
+- CI **verde**: run `43945376449` (conteúdo, lint, build e varredura de segredos).
+- Deploy da Vercel conferido em produção: home com 5 cases (sem Monky Food), `/cv` com RGSUL Internet/Fiberschool/nome completo, PDF de 1 página (79.721 bytes) e `/cases/routepilot` com a demo pública.
 
 ### Currículo alinhado ao documento oficial (16/11/2026, noite)
 
