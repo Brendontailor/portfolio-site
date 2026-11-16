@@ -150,107 +150,12 @@ export const cases: CaseStudy[] = [
       "Sistema privado, desenvolvido para uma operação real. Código e dados não são públicos.",
   },
   {
-    slug: "monky-food",
-    index: "02",
-    title: "Monky Food",
-    kicker: "SaaS multi-tenant para food service",
-    type: "Produto próprio",
-    status: "Em desenvolvimento",
-    year: "2026",
-    role: "Produto & engenharia",
-    tags: ["SaaS", "Multi-tenant", "White-label", "Food service"],
-    summary:
-      "A base da Sah Açaí virou uma plataforma white-label: cada loja com sua identidade, seus dados isolados e a operação no mesmo painel.",
-    cover: "/images/case-monky-food.webp",
-    coverAlt:
-      "Vitrine real da Sah Açaí & Cia, primeira operação da plataforma Monky Food",
-    context:
-      "Depois de colocar a Sah Açaí em operação, o próximo passo foi transformar a mesma base em um produto reutilizável para açaiterias, hamburguerias, pizzarias, marmitarias e operações de balcão.",
-    problem:
-      "Duplicar o sistema para cada cliente não escala. A plataforma precisava resolver a loja pelo domínio ou subdomínio, separar dados por empresa e manter o painel central funcionando sem misturar operações.",
-    solution:
-      "A Monky Food é uma plataforma white-label com banco compartilhado e isolamento por empresa. A vitrine resolve a loja pelo domínio, o painel identifica a empresa pela sessão e os dados de negócio permanecem separados por operação. A Sah Açaí é a primeira operação real.",
-    architecture: {
-      summary:
-        "Uma plataforma atende diferentes lojas: a vitrine identifica a operação e o painel mantém os dados de cada empresa separados.",
-      modules: [
-        {
-          name: "Vitrine white-label",
-          responsibility:
-            "Resolver a loja pelo domínio e apresentar catálogo e identidade visual próprios.",
-        },
-        {
-          name: "Painel operacional",
-          responsibility:
-            "Atender cada empresa com contexto de sessão e ferramentas da operação.",
-        },
-        {
-          name: "Isolamento multiempresa",
-          responsibility:
-            "Manter os dados de negócio separados entre lojas dentro de uma plataforma compartilhada.",
-        },
-      ],
-    },
-    decisions: [
-      {
-        title: "Isolamento desde a modelagem",
-        text: "Os dados de negócio recebem o contexto da empresa desde a modelagem. O isolamento não depende de filtros aplicados manualmente em cada tela.",
-      },
-      {
-        title: "Resolução por Host",
-        text: "A vitrine descobre a loja pelo domínio ou subdomínio; o painel descobre a empresa pela sessão.",
-      },
-      {
-        title: "Banco compartilhado, dados separados",
-        text: "Uma base só, com escopo por empresa. Menos duplicação, mais consistência e um caminho claro para planos e módulos.",
-      },
-      {
-        title: "Migração incremental",
-        text: "A operação que já existia ganhou um caminho de migração, sem parar a loja para trocar de plataforma.",
-      },
-    ],
-    results: [
-      "Primeira operação real: Sah Açaí & Cia",
-      "Isolamento por empresa nas tabelas de negócio",
-      "Vitrine white-label por domínio",
-      "Base preparada para planos, módulos e identidade por loja",
-    ],
-    stack: [
-      {
-        label: "Frontend",
-        items: ["React", "TypeScript", "Vite", "Tailwind"],
-      },
-      {
-        label: "Backend",
-        items: ["Node.js", "Express", "TypeScript", "Prisma"],
-      },
-      { label: "Banco", items: ["PostgreSQL"] },
-      {
-        label: "Arquitetura",
-        items: [
-          "Multi-tenant",
-          "Banco compartilhado",
-          "Isolamento por empresa",
-        ],
-      },
-    ],
-    gallery: [
-      {
-        src: "/images/sah-acai-admin.webp",
-        alt: "Acesso ao painel da primeira operação da Monky Food",
-        caption:
-          "Acesso ao painel da primeira operação. Cada loja mantém sua própria identidade e seus dados isolados.",
-      },
-    ],
-    statusNote: "Base multi-tenant em evolução. Código privado.",
-  },
-  {
     slug: "routepilot",
-    index: "03",
+    index: "02",
     title: "RoutePilot",
     kicker: "Mapa operacional e planejamento de visitas",
     type: "Produto próprio",
-    status: "No ar · acesso restrito",
+    status: "No ar · demonstração pública",
     year: "2026",
     role: "Produto & engenharia",
     tags: ["PWA", "Mapas", "Offline", "Geocodificação"],
@@ -352,11 +257,11 @@ export const cases: CaseStudy[] = [
       },
     ],
     statusNote:
-      "No ar, com acesso restrito a usuários autorizados. O código é privado.",
+      "No ar e acessível publicamente: a demonstração abre sem login — o acesso com Google fica para recursos restritos. O código é privado.",
   },
   {
     slug: "portcont",
-    index: "04",
+    index: "03",
     title: "PortCont",
     kicker: "Comparação inteligente de bases",
     type: "Produto próprio",
@@ -446,7 +351,7 @@ export const cases: CaseStudy[] = [
   },
   {
     slug: "dropzone",
-    index: "05",
+    index: "04",
     title: "Dropzone",
     kicker: "E-commerce de streetwear",
     type: "Colaboração",
@@ -458,7 +363,6 @@ export const cases: CaseStudy[] = [
       "Vitrine, catálogo, carrinho, favoritos e área administrativa para uma marca de streetwear — em colaboração com Leonardo Rosler.",
     cover: "/images/case-dropzone.webp",
     coverAlt: "Home real da loja Dropzone, campanha de streetwear",
-    wide: true,
     context:
       "A Dropzone é uma marca de streetwear com vitrine, catálogo, carrinho, favoritos e área administrativa. O projeto foi desenvolvido em colaboração com Leonardo Rosler.",
     problem:
@@ -559,7 +463,7 @@ export const cases: CaseStudy[] = [
   },
   {
     slug: "agenda-flow",
-    index: "06",
+    index: "05",
     title: "AgendaFlow",
     kicker: "Agendamentos com automações no n8n",
     type: "Projeto acadêmico",

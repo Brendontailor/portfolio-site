@@ -70,6 +70,8 @@ export function ContactSection() {
               {site.availability}
             </span>
             <span>{site.location}</span>
+            <span>{site.contract}</span>
+            <span>{site.english}</span>
             <span>{site.phone}</span>
           </div>
         </Reveal>

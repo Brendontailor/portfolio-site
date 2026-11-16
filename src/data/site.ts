@@ -9,6 +9,8 @@ export const site = {
   linkedin: "https://br.linkedin.com/in/brendon-tailor-404144284",
   location: "Brasil · remoto",
   availability: "Disponível para novos projetos",
+  contract: "Aberto a CLT ou PJ",
+  english: "Inglês técnico — leitura",
   url: "https://portfolio-site-brendont.vercel.app",
   cv: "/cv/brendon-tailor-cv.pdf",
   description:
@@ -21,7 +23,7 @@ export const site = {
     { label: "Currículo", href: "/cv" },
   ],
   stats: [
-    { value: "03", label: "produtos próprios" },
+    { value: "02", label: "produtos próprios" },
     { value: "01", label: "cliente real" },
     { value: "2026", label: "em construção" },
   ],

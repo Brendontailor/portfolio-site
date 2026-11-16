@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { site } from "@/data/site";
+import { cases } from "@/data/cases";
 import { ArrowDown, ArrowUpRight } from "@/components/icons";
 import { BrowserFrame } from "@/components/browser-frame";
 import { Reveal } from "@/components/reveal";
@@ -14,6 +15,8 @@ export function Hero() {
             {site.availability}
             <span className="hero-eyebrow-sep">/</span>
             {site.location}
+            <span className="hero-eyebrow-sep">/</span>
+            {site.contract}
           </p>
 
           <h1 id="hero-title">
@@ -27,14 +30,14 @@ export function Hero() {
             <strong>Brendon Tailor</strong> — desenvolvedor full-stack que entrega sistemas
             completos: do modelo de dados à interface, da arquitetura à operação.
             <br />
-            Seis cases comprovam: SaaS multi-tenant, plataformas white-label,
-            PWA offline com mapas, conciliação de bases, e-commerce editorial e
-            automação de agendamentos com n8n.
+            {cases.length} cases no portfólio comprovam: pedidos pelo WhatsApp
+            com painel financeiro, PWA offline com mapas, conciliação de bases,
+            e-commerce editorial e automação de agendamentos com n8n.
           </p>
 
           <div className="hero-actions">
             <a href="#cases" className="btn btn-primary">
-              Ver os 6 cases
+              Ver os {cases.length} cases
               <ArrowUpRight size={16} />
             </a>
             <a href="#contato" className="btn btn-ghost">
@@ -62,7 +65,7 @@ export function Hero() {
             <div className="hero-visual-glow" aria-hidden="true" />
 
             <div className="hero-main-frame">
-              <BrowserFrame url="routepilot.app" label="CASE 01">
+              <BrowserFrame url="routpilotes.vercel.app" label="CASE 02">
                 <div className="hero-main-media">
                   <Image
                     src="/images/case-routepilot-map.webp"

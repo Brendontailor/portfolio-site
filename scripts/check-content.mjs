@@ -60,6 +60,17 @@ for (const item of labItems) {
   if (item.href && !item.href.startsWith("https://")) {
     errors.push(`Item ${item.id} tem href não público: ${item.href}`);
   }
+
+  // link para este repositório precisa apontar para um caminho que existe
+  const repoPath = item.href?.match(
+    /^https:\/\/github\.com\/Brendontailor\/portfolio-site\/(?:blob|tree)\/main\/(.+)$/,
+  );
+
+  if (repoPath && !existsSync(join(process.cwd(), repoPath[1]))) {
+    errors.push(
+      `Item ${item.id} aponta para um caminho inexistente no repositório: ${repoPath[1]}`,
+    );
+  }
 }
 
 const slugs = new Set();
@@ -140,6 +151,36 @@ cases.forEach((study, position) => {
     }
   });
 });
+
+// A grade de cases usa 12 colunas: card comum ocupa 6, featured/wide ocupa 12.
+// A sequência precisa fechar a grade sem deixar buracos (coluna vazia na linha).
+const GRID_COLUMNS = 12;
+let cursor = 0; // próxima coluna livre da linha atual
+
+for (const study of cases) {
+  const label = `Case ${study.slug}`;
+  const span = study.featured || study.wide ? GRID_COLUMNS : GRID_COLUMNS / 2;
+
+  if (cursor + span > GRID_COLUMNS) {
+    const hole = GRID_COLUMNS - cursor;
+
+    if (hole > 0) {
+      errors.push(
+        `${label} ocupa ${span} colunas e não cabe no espaço restante — a linha ficaria com ${hole} coluna(s) vazia(s). Marque o case como featured/wide ou reordene a sequência.`,
+      );
+    }
+
+    cursor = 0;
+  }
+
+  cursor += span;
+}
+
+if (cursor !== 0 && cursor !== GRID_COLUMNS) {
+  errors.push(
+    `A grade de cases termina com ${GRID_COLUMNS - cursor} coluna(s) vazia(s) — o último case precisa ser featured/wide ou o número de cases comuns precisa ser par.`,
+  );
+}
 
 const imagesDir = join(publicDir, "images");
 

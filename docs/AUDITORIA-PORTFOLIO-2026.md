@@ -4,6 +4,17 @@
 **Escopo**: site `portfolio-site` (código em `src/`), conteúdo dos cases, presença no GitHub e publicação
 **Objetivo**: comparar o portfólio com o que o mercado brasileiro pede hoje e priorizar o que melhora a conversão em entrevistas
 
+> **Atualizações após a auditoria (16/11/2026)**
+>
+> - O case **Monky Food foi removido** do portfólio a pedido do autor — restam 5 cases (Sah Açaí & Cia, RoutePilot, PortCont, Dropzone e AgendaFlow).
+> - O **RoutePilot passou a ter demo pública** (`https://routpilotes.vercel.app`): o status do case foi corrigido de "acesso restrito" para "demonstração pública".
+> - A grade da seção de cases foi refeita para fechar as 12 colunas sem buracos, e `npm run check:content` agora valida esse invariante.
+> - Os links públicos do laboratório apontavam para caminhos inexistentes no repositório: agora apontam para código real em `src/reference/`.
+> - O texto do CI/CD na seção "Sobre" foi corrigido para refletir o workflow real (conteúdo, lint, type-check, build e varredura de segredos).
+> --hero e currículo passaram a informar **inglês técnico (leitura)** e **abertura para CLT ou PJ em trabalho remoto**.
+>
+> Os achados abaixo permanecem como linha de base do que ainda precisa de trabalho.
+
 ---
 
 ## 1. Resumo executivo

@@ -4,9 +4,9 @@ Portfólio de Brendon Tailor, desenvolvedor full-stack e co-fundador da Monky So
 
 ## O que está aqui
 
-- **5 cases** — Sah Açaí & Cia, Monky Food, RoutePilot, PortCont e Dropzone.
+- **5 cases** — Sah Açaí & Cia, RoutePilot, PortCont, Dropzone e AgendaFlow.
 - **9 camadas de conhecimento** — fundamentos, algoritmos, regras de negócio, Clean Code, arquitetura, banco de dados, APIs, infraestrutura/segurança e IA aplicada.
-- **4 itens de laboratório** — AED2 Labirinto, Singleton, Quicksort e Emberblade.
+- **4 itens de laboratório** — rate limiting com janela deslizante, rotas de API com validação Zod, autenticação JWT e middleware multi-tenant.
 - **Páginas de case** com contexto, problema, solução, decisões técnicas, stack, galeria e próximo case.
 - **Conteúdo data-driven** em `src/data`, sem banco de dados ou CMS.
 
@@ -55,6 +55,7 @@ src/
     knowledge.ts      as 9 camadas
     lab.ts            os 4 itens do laboratório
     site.ts           marca, contato, navegação e estatísticas
+  reference/          código de referência publicado (rate limit, rota de API)
 public/
   images/             capturas e fotos reais
   og-image.png        Open Graph 1200×630

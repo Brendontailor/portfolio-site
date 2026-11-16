@@ -14,24 +14,60 @@ export const metadata: Metadata = {
 
 const skills = [
   {
-    label: "Frontend",
-    items: ["React 19", "Next.js (App Router)", "TypeScript", "JavaScript", "Tailwind CSS"],
+    label: "Operação e Suporte",
+    items: [
+      "IXCsoft",
+      "The Dude",
+      "UNM",
+      "Controle de agendas, rotas e ordens de serviço",
+      "Diagnóstico de falhas de conectividade",
+    ],
   },
   {
-    label: "Backend",
-    items: ["Node.js", "Express", "APIs REST", "Prisma", "JWT e cookies HttpOnly"],
+    label: "Redes e Telecom",
+    items: [
+      "Fibra óptica",
+      "Redes",
+      "MikroTik",
+      "PPPoE/IP",
+      "ONUs/ONTs",
+      "Análise de potência RX/TX",
+    ],
   },
   {
-    label: "Dados",
-    items: ["PostgreSQL", "Neon", "Modelagem relacional", "Migrações"],
+    label: "Full Stack",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "APIs REST",
+      "Python",
+      "PostgreSQL",
+      "MySQL",
+      "Git/GitHub",
+    ],
   },
   {
-    label: "Infra e qualidade",
-    items: ["Docker", "Git e GitHub", "GitHub Actions", "Vercel", "Vitest"],
+    label: "Infra e automação",
+    items: [
+      "Docker",
+      "Prisma",
+      "GitHub Actions",
+      "Vercel",
+      "n8n",
+      "Vitest",
+    ],
   },
   {
-    label: "Automação e IA",
-    items: ["n8n", "Webhooks", "Integrações", "Google GenAI"],
+    label: "Informática",
+    items: [
+      "Montagem e manutenção de desktops e notebooks",
+      "Substituição de componentes",
+      "Instalação e formatação de sistemas operacionais",
+    ],
   },
 ];
 
@@ -42,14 +78,6 @@ const projects = [
     bullets: [
       "Pedido validado e recalculado no servidor, persistido antes do envio ao WhatsApp.",
       "Painel com lançamentos manuais, custos de embalagem e indicadores da operação.",
-    ],
-  },
-  {
-    name: "Monky Food",
-    role: "SaaS multi-tenant white-label · produto próprio",
-    bullets: [
-      "Isolamento de dados por empresa e resolução da loja por domínio.",
-      "Migração incremental da primeira operação sem parar a loja.",
     ],
   },
   {
@@ -86,6 +114,43 @@ const projects = [
   },
 ];
 
+const jobs = [
+  {
+    role: "Suporte Técnico N1/N2 / Coordenação de Agendas e Serviços",
+    company: "RGSUL Internet",
+    period: "06/2026 – Atual · Pelotas/RS",
+    bullets: [
+      "Gestão de agendas, organização de rotas e despacho de ordens de serviço para as equipes técnicas de campo.",
+      "Atendimento a clientes residenciais e corporativos, com diagnóstico inicial de falhas de conectividade.",
+      "Abertura e acompanhamento de chamados no IXCsoft, com registro das informações e encaminhamento às áreas responsáveis.",
+      "Monitoramento de rede com The Dude e UNM; provisionamento e acompanhamento de ONUs/ONTs, incluindo análise de potência RX/TX.",
+    ],
+  },
+  {
+    role: "Auxiliar Administrativo / Secretaria",
+    company: "Exército Brasileiro",
+    period: "03/2019 – 02/2026",
+    bullets: [
+      "Atendimento, gestão de documentos, protocolos e demandas administrativas.",
+      "Acompanhamento de solicitações e tramitação de processos, com atenção à precisão e ao cumprimento de prazos.",
+      "Atuação em ambiente de alta responsabilidade, seguindo procedimentos internos e trabalhando em equipe.",
+    ],
+  },
+];
+
+const courses = [
+  {
+    role: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+    company: "Senac Pelotas",
+    period: "2025 – Atual (4º semestre)",
+  },
+  {
+    role: "Curso de Fibra Óptica do Zero",
+    company: "Fiberschool",
+    period: "Concluído",
+  },
+];
+
 export default function CvPage() {
   return (
     <main id="main" className="cv-page" tabIndex={-1}>
@@ -103,9 +168,10 @@ export default function CvPage() {
       <article className="cv-sheet">
         <header className="cv-head">
           <div>
-            <h1>{site.name}</h1>
+            <h1>Brendon Tailor dos Santos Cavalheiro</h1>
             <p className="cv-role">
-              Desenvolvedor Full-Stack — React, Next.js, Node.js e PostgreSQL
+              Suporte Técnico N1/N2 · Desenvolvimento Full Stack (React, Node.js,
+              PostgreSQL)
             </p>
           </div>
           <ul className="cv-contact">
@@ -127,12 +193,16 @@ export default function CvPage() {
         <section className="cv-section">
           <h2>Perfil</h2>
           <p>
-            Desenvolvedor full-stack em formação (ADS, Senac Pelotas) com 7 anos
-            de experiência administrativa no Exército Brasileiro. Construo
-            sistemas completos — modelagem de dados, API, interface e operação —
-            com foco em confiabilidade e clareza de regras. Seis projetos
-            publicados, incluindo um sistema de pedidos em operação para um
-            cliente real e uma plataforma SaaS multi-tenant.
+            Profissional de suporte técnico N1/N2 em telecomunicações, com
+            experiência em atendimento a clientes, gestão de agendas, rotas e
+            ordens de serviço, abertura de chamados e monitoramento de redes.
+            Ex-militar com sete anos de experiência administrativa e controle de
+            informações. Estudante de Análise e Desenvolvimento de Sistemas, com
+            projetos próprios em desenvolvimento Full Stack — cinco sistemas
+            publicados no portfólio, incluindo um sistema de pedidos em
+            operação para um cliente real e uma PWA de planejamento de visitas no
+            ar. Leio documentação e código em inglês; estou aberto a trabalho
+            remoto como CLT ou PJ.
           </p>
         </section>
 
@@ -170,36 +240,42 @@ export default function CvPage() {
         <div className="cv-columns">
           <section className="cv-section">
             <h2>Experiência</h2>
-            <div className="cv-job">
-              <h3>Auxiliar Administrativo</h3>
-              <p className="cv-job-meta">Exército Brasileiro · 03/2019 – 02/2026</p>
-              <ul>
-                <li>Atendimento ao público e suporte a colaboradores.</li>
-                <li>Gestão, organização e arquivamento de documentos.</li>
-                <li>Elaboração e controle de relatórios, ofícios e correspondências.</li>
-                <li>Operação de sistemas corporativos e cumprimento de prazos.</li>
-              </ul>
-            </div>
+            {jobs.map((job) => (
+              <div key={job.company} className="cv-job">
+                <h3>{job.role}</h3>
+                <p className="cv-job-meta">
+                  {job.company} · {job.period}
+                </p>
+                <ul>
+                  {job.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </section>
 
           <div>
             <section className="cv-section">
               <h2>Formação</h2>
-              <div className="cv-job">
-                <h3>Análise e Desenvolvimento de Sistemas</h3>
-                <p className="cv-job-meta">Senac Pelotas · 2025 – em andamento</p>
-                <p>3º semestre de 6.</p>
-              </div>
+              {courses.map((course) => (
+                <div key={course.role} className="cv-job">
+                  <h3>{course.role}</h3>
+                  <p className="cv-job-meta">
+                    {course.company} · {course.period}
+                  </p>
+                </div>
+              ))}
             </section>
 
             <section className="cv-section">
               <h2>Idiomas</h2>
-              <p>Português — nativo.</p>
+              <p>Português — nativo. Inglês — leitura técnica (documentação e código).</p>
             </section>
 
             <section className="cv-section">
               <h2>Disponibilidade</h2>
-              <p>Imediata · CLT ou PJ · remoto ou híbrido em Pelotas.</p>
+              <p>Imediata · trabalho remoto · CLT ou PJ · CNH AB.</p>
             </section>
           </div>
         </div>

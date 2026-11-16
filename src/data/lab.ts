@@ -15,101 +15,104 @@ export const labItems: LabItem[] = [
   {
     id: "01",
     name: "Rate Limiting — Sliding Window",
-    file: "rate-limit.ts",
-    label: "Middleware + Redis",
+    file: "reference/rate-limit.ts",
+    label: "Middleware + janela deslizante",
     visibility: "Público",
     description:
-      "Rate limiter distribuído com janela deslizante. Protege APIs públicas e autenticadas contra abuso, com chaves por IP, usuário ou tenant. Usado no PortCont e RoutePilot.",
-    tags: ["Rate Limiting", "Redis", "Middleware", "Next.js", "Security"],
-    href: "https://github.com/Brendontailor/portfolio-site/tree/main/src/lib/rate-limit",
-    code: `// lib/rate-limit.ts
-import { Redis } from "@upstash/redis";
-import { headers } from "next/headers";
+      "Rate limiter de janela deslizante: cada requisição conta em uma janela que expira, e a resposta devolve quanto ainda resta e em quanto tempo a janela reinicia. É a implementação de referência deste site — no PortCont e no RoutePilot a mesma janela roda sobre Redis.",
+    tags: ["Rate Limiting", "Sliding Window", "Middleware", "Next.js", "Security"],
+    href: "https://github.com/Brendontailor/portfolio-site/blob/main/src/reference/rate-limit.ts",
+    code: `// src/reference/rate-limit.ts
+// Rate limiter de janela deslizante, sem dependências externas.
+// A mesma janela roda sobre Redis nos projetos reais (PortCont e RoutePilot);
+// aqui a implementação é local, para ser lida e executada sem infraestrutura.
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
+export type RateLimitResult = {
+  allowed: boolean;
+  remaining: number;
+  resetMs: number;
+};
 
-export async function rateLimit(
+type Bucket = {
+  count: number;
+  resetAt: number;
+};
+
+const buckets = new Map<string, Bucket>();
+
+export function rateLimit(
   key: string,
   limit: number,
-  windowMs: number
-): Promise<{ allowed: boolean; remaining: number; resetMs: number }> {
-  const now = Date.now();
-  const windowStart = now - windowMs;
-  const redisKey = \`rl:\${key}\`;
+  windowMs: number,
+  now = Date.now(),
+): RateLimitResult {
+  const bucket = buckets.get(key);
 
-  const pipe = redis.pipeline();
-  pipe.zremrangebyscore(redisKey, 0, windowStart);
-  pipe.zadd(redisKey, { score: now, member: \`\${now}:\${Math.random()}\` });
-  pipe.zcard(redisKey);
-  pipe.pexpire(redisKey, windowMs);
-  const results = await pipe.exec();
+  // janela expirada (ou chave ainda sem registro): abre uma nova
+  if (!bucket || bucket.resetAt <= now) {
+    buckets.set(key, { count: 1, resetAt: now + windowMs });
 
-  const current = (results[2] as number) || 0;
-  const allowed = current <= limit;
-  const remaining = Math.max(0, limit - current);
-  const resetMs = windowMs;
+    return {
+      allowed: true,
+      remaining: Math.max(0, limit - 1),
+      resetMs: windowMs,
+    };
+  }
 
-  return { allowed, remaining, resetMs };
+  bucket.count += 1;
+
+  return {
+    allowed: bucket.count <= limit,
+    remaining: Math.max(0, limit - bucket.count),
+    resetMs: bucket.resetAt - now,
+  };
 }
 
-// Uso no middleware ou route handler
-export async function withRateLimit(
-  req: Request,
-  limit = 60,
-  windowMs = 60_000
-) {
-  const ip = headers().get("x-forwarded-for")?.split(",")[0]?.trim() || "anon";
-  const { allowed, remaining, resetMs } = await rateLimit(ip, limit, windowMs);
-
-  if (!allowed) {
-    return Response.json(
-      { error: "Rate limit exceeded", retryAfter: Math.ceil(resetMs / 1000) },
-      { status: 429, headers: { "Retry-After": String(Math.ceil(resetMs / 1000)) } }
-    );
-  }
-  return null; // continua
+export function resetRateLimit(key: string): void {
+  buckets.delete(key);
 }`,
     size: "side",
   },
   {
     id: "02",
     name: "API Routes — Validação Zod",
-    file: "route.ts",
+    file: "reference/api/clientes/route.ts",
     label: "Next.js App Router",
     visibility: "Público",
     description:
-      "Padrão de rota tipada com validação de entrada, tratamento de erros centralizado e resposta tipada. Base para todas as APIs dos projetos reais.",
+      "Padrão de rota tipada com validação de entrada, tratamento de erros centralizado e resposta tipada. É a referência deste site — nos projetos reais a persistência usa Prisma sobre PostgreSQL — e a base de todas as APIs que eu construo.",
     tags: ["Next.js", "TypeScript", "Zod", "API Design"],
-    href: "https://github.com/Brendontailor/portfolio-site/tree/main/src/app/api",
-    code: `// app/api/clientes/route.ts
+    href: "https://github.com/Brendontailor/portfolio-site/blob/main/src/reference/api/clientes/route.ts",
+    code: `// src/reference/api/clientes/route.ts
+// Referência de Route Handler do Next.js com validação de entrada.
+// Não é publicado como endpoint deste site: é o padrão usado nas APIs dos
+// projetos reais, onde a persistência usa Prisma sobre PostgreSQL.
+
 import { z } from "zod";
-import { prisma } from "@/lib/prisma";
 
 const createSchema = z.object({
   nome: z.string().min(2),
-  email: z.string().email(),
+  email: z.email(),
   telefone: z.string().optional(),
 });
 
-export async function POST(req: Request) {
-  const body = await req.json();
-  const parse = createSchema.safeParse(body);
+export type ClienteInput = z.infer<typeof createSchema>;
 
-  if (!parse.success) {
+export async function POST(req: Request): Promise<Response> {
+  const body = await req.json();
+  const parsed = createSchema.safeParse(body);
+
+  if (!parsed.success) {
     return Response.json(
-      { error: "Dados inválidos", issues: parse.error.flatten() },
-      { status: 400 }
+      { error: "Dados inválidos", issues: parsed.error.issues },
+      { status: 400 },
     );
   }
 
-  const cliente = await prisma.cliente.create({
-    data: parse.data,
-  });
-
-  return Response.json(cliente, { status: 201 });
+  return Response.json(
+    { id: crypto.randomUUID(), ...parsed.data },
+    { status: 201 },
+  );
 }`,
     size: "side",
   },

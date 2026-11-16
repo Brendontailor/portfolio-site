@@ -18,6 +18,14 @@ export default function Home() {
     url: site.url,
     email: `mailto:${site.email}`,
     sameAs: [site.github, site.linkedin],
+    knowsLanguage: [
+      { "@type": "Language", name: "Português", alternateName: "pt-BR" },
+      { "@type": "Language", name: "Inglês", alternateName: "en" },
+    ],
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "Senac",
+    },
     worksFor: {
       "@type": "Organization",
       name: site.company,

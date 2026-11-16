@@ -85,10 +85,12 @@ export function AboutSection() {
               Prisma, PostgreSQL, Tailwind, Docker, Git.
             </p>
             <p>
-              Git & GitHub: workflow com Conventional Commits, branches por feature,
-              PRs com revisão, GitHub Actions para CI/CD (lint, type-check, testes,
-              build, deploy preview), semantic-release para versionamento automático
-              e changelog. Experiência com monorepos, submodules e migração de histórico.
+              Git & GitHub: workflow com Conventional Commits, branches por
+              feature e PRs com revisão. O CI deste repositório roda em cada
+              push e PR com validação de conteúdo, lint, type-check e build de
+              produção, mais varredura de segredos — e a publicação na Vercel
+              sai direto da branch principal. Changelog em Keep a Changelog.
+              Experiência com monorepos, submodules e migração de histórico.
             </p>
           </Reveal>
         </div>
