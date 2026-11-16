@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Implementacoes de referencia e scripts Node isolados do app:
+    "exemplos/**",
+    "scripts/**",
   ]),
 ]);
 
