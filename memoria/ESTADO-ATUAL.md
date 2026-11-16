@@ -89,8 +89,8 @@ Pendências: commit/push do P0; atualizar descrição do vídeo no YouTube (link
 
 ### Estado do Git
 
-- Branch `main`, **1 commit à frente do remoto** (P0) + alterações desta sessão ainda **não commitadas**.
-- **Push autorizado** pelo autor no fim da sessão ("termine e faça o push").
+- Branch `main`, **sincronizada com `origin/main`** após o push autorizado (`555905e..cac775f`).
+- Workflow "Validar" corrigido: `node-version: '24'` (com Node 20 o `check:content` não conseguia importar os dados em TypeScript).
 
 ### Currículo alinhado ao documento oficial (16/11/2026, noite)
 

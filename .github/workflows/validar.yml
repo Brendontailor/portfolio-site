@@ -18,7 +18,8 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          # Node 24: `check:content` importa os dados em TypeScript (type stripping nativo)
+          node-version: '24'
           cache: 'npm'
 
       - name: Instalar dependências

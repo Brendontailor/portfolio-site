@@ -67,4 +67,5 @@
   - `src/app/globals.css`: espaçamento entre `.cv-job` (`.cv-job + .cv-job`)
   - `public/cv/brendon-tailor-cv.pdf`: substituído pelo PDF oficial do autor (1 página, 79 KB)
 - **Validação**: `npm run check:content` OK; `npm run lint` sem erros; `npm run build` OK (15 páginas); `/cv` conferida por texto no navegador (sem overflow)
-- **Push**: autorizado pelo autor ("termine e faça o push")
+- **Push**: autorizado pelo autor ("termine e faça o push") — `555905e..cac775f` enviado para `origin/main`
+- **CI corrigido**: a primeira execução do workflow "Validar" falhou em `check:content` porque o runner usava Node 20 (sem type stripping para importar `src/data/cases.ts`). Workflow atualizado para `node-version: '24'`.
