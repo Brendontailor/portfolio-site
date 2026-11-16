@@ -1,20 +1,38 @@
 ﻿# Estado Atual - portfolio-site
 
-**Última atualização**: 2026-10-28 12:40:37
-**Versão**: 1.0
+**Última atualização**: 2026-11-16
+**Versão**: 1.1
 
 ---
 
 ## Objetivo Atual
 
-AGENT-BIBLE aplicado com sucesso ao portfolio-site Next.js. Estrutura validada (62/62), links OK. Skills locais instaladas. Projeto pronto para desenvolvimento contínuo.
+Portfólio com 6 cases. O case 06 (AgendaFlow) foi adicionado com player de vídeo do YouTube, galeria extraída do próprio vídeo e conteúdo detalhado de arquitetura, decisões e resultados.
 
 ---
 
 ## Fase em Andamento
 
-**FASE 2: DESENVOLVIMENTO CONTÍNUO**
+**FASE 3: PUBLICAÇÃO DE CONTEÚDO**
 
-### Próxima Etapa
+### Concluído nesta etapa
 
-1. Copiar docs/checklists/templates da AGENT-BIBLE\n2. Substituir AGENTS.md pelo da AGENT-BIBLE\n3. Validar estrutura\n4. Definir plano de melhorias do portfolio
+- Suporte a vídeo nos cases (`CaseVideo` em `src/data/cases.ts` + seção `#case-video` na página do case)
+- Case `agenda-flow` completo (contexto, problema, solução, módulos, decisões, resultados, stack, galeria)
+- Imagens geradas a partir do vídeo final (`public/images/agenda-flow-*.webp`, `case-agenda-flow.webp`, `public/og/agenda-flow.jpg`)
+- Home atualizada (`cases-section.tsx`: "automação" e "vídeos")
+- Vídeo publicado no YouTube público: https://youtu.be/hlUS2N0JeX4
+- `youtubeId: "hlUS2N0JeX4"` ativo no case
+
+### Validações executadas
+
+- `npm run check:content` — OK (6 cases, 9 camadas, 4 itens de laboratório)
+- `npx eslint src` e `npm run lint` — sem erros
+- `npm run build` — sucesso, 15 páginas geradas
+- Página conferida em desktop e mobile no dev server (player, hero e galeria renderizando)
+
+### Ajustes de configuração necessários
+
+- `tsconfig.json` e `eslint.config.mjs` passaram a excluir `exemplos/**` (código de referência com erros pré-existentes de tipos/deps)
+- `eslint.config.mjs` também ignora `scripts/**`
+- Corrigido erro de sintaxe real em `exemplos/arquitetura-modular/frontend/src/pages/Usuarios/Lista.tsx` (`});` → `};`)

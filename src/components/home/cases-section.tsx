@@ -25,9 +25,9 @@ export function CasesSection() {
           }
           description={
             <p>
-              {cases.length} recortes de produtos reais: cliente, SaaS, dados, mapa e
-              colaboração. Cada case mostra o contexto, a decisão e o que foi
-              construído — sem expor código ou dados.
+              {cases.length} recortes de produtos reais: cliente, SaaS, dados, mapa,
+              automação e colaboração. Cada case mostra o contexto, a decisão e o
+              que foi construído — sem expor código ou dados.
             </p>
           }
         />
@@ -64,7 +64,7 @@ export function CasesSection() {
 
         <Reveal className="cases-footnote">
           <p>
-            Fotos, capturas de interface e diagramas mostram os produtos sem
+            Capturas de interface, vídeos e diagramas mostram os produtos sem
             expor dados sensíveis de clientes.
           </p>
           <a

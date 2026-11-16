@@ -11,6 +11,13 @@ export type CaseImage = {
   aspect?: string;
 };
 
+export type CaseVideo = {
+  youtubeId: string;
+  title: string;
+  description?: string;
+  verticalYoutubeId?: string;
+};
+
 export type CaseStudy = {
   slug: string;
   index: string;
@@ -38,6 +45,7 @@ export type CaseStudy = {
   stack: { label: string; items: string[] }[];
   gallery?: CaseImage[];
   links?: CaseLink[];
+  video?: CaseVideo;
   statusNote: string;
 };
 
@@ -548,6 +556,142 @@ export const cases: CaseStudy[] = [
     ],
     statusNote:
       "Projeto colaborativo. A marca, o catálogo e o código pertencem aos responsáveis pelo projeto. Este case é apresentado com crédito e sem exposição de dados de clientes.",
+  },
+  {
+    slug: "agenda-flow",
+    index: "06",
+    title: "AgendaFlow",
+    kicker: "Agendamentos com automações no n8n",
+    type: "Projeto acadêmico",
+    status: "Demonstração local",
+    year: "2026",
+    role: "Full-stack & automação",
+    tags: ["Automação", "n8n", "Webhooks", "Next.js"],
+    summary:
+      "Um sistema de agendamento para clínica em que o n8n assume os e-mails: confirmação para o cliente, aviso para a equipe e lembrete 24 horas antes do atendimento.",
+    cover: "/images/case-agenda-flow.webp",
+    coverAlt:
+      "Fluxo do n8n do AgendaFlow com webhook, preparação de dados e envio de e-mails",
+    context:
+      "O AgendaFlow nasceu como trabalho da disciplina de Programação Full Stack, em dupla com Leonardo Rosa. O pacote extra escolhido foi o n8n: em vez de programar o envio de e-mails dentro da aplicação, a automação ficaria em um serviço separado, com o sistema apenas publicando os eventos.",
+    problem:
+      "Confirmação e lembrete de 24 horas costumam acabar dentro do código da aplicação. Isso mistura regra de negócio com integração de e-mail, dificulta testar o fluxo e faz o agendamento depender de um SMTP para funcionar. O desafio era automatizar a comunicação sem perder o horário reservado quando o n8n estivesse fora do ar.",
+    solution:
+      "A aplicação é um Next.js 15 com Route Handlers e Prisma sobre PostgreSQL no Neon. Ao confirmar, o backend recalcula a disponibilidade, grava o agendamento em transação Serializable e só então chama o webhook do n8n, com timeout de 5 s. O n8n formata os dados e envia dois e-mails: confirmação para o cliente e aviso para a equipe. Um segundo workflow roda a cada cinco minutos, busca lembretes pendentes e envia o aviso de 24 horas, marcando cada envio para não duplicar. Na demonstração, o Mailpit captura os e-mails em vez de entregá-los em caixas reais.",
+    architecture: {
+      summary:
+        "O Next.js cuida do agendamento e do painel; o n8n cuida da comunicação. Os dois conversam por webhook e por endpoints internos protegidos por segredo.",
+      modules: [
+        {
+          name: "Agendamento e disponibilidade",
+          responsibility:
+            "Calcular horários livres, recusar conflitos e gravar o agendamento antes de notificar.",
+        },
+        {
+          name: "Automação de e-mails",
+          responsibility:
+            "Receber o evento de novo agendamento e enviar a confirmação ao cliente e o aviso à equipe.",
+        },
+        {
+          name: "Lembretes de 24 horas",
+          responsibility:
+            "Buscar agendamentos próximos, enviar um lembrete por vez e registrar cada envio.",
+        },
+        {
+          name: "Painel da equipe",
+          responsibility:
+            "Acompanhar a agenda, filtrar por data, buscar por cliente e ver o status dos lembretes.",
+        },
+      ],
+    },
+    decisions: [
+      {
+        title: "E-mail fora do sistema",
+        text: "O n8n concentra a comunicação e a aplicação só publica o evento. O fluxo de e-mail pode mudar sem alterar o código do agendamento.",
+      },
+      {
+        title: "Gravar antes de notificar",
+        text: "O agendamento é persistido antes do webhook, que tem timeout curto. Se o n8n falhar, o horário continua reservado e a interface avisa que o e-mail pode demorar.",
+      },
+      {
+        title: "Segredo compartilhado",
+        text: "O webhook usa Header Auth e os endpoints internos exigem x-internal-secret, comparado em tempo constante. A automação não fica aberta na internet.",
+      },
+      {
+        title: "Lembrete sem duplicidade",
+        text: "O envio é marcado com updateMany condicional e o nó de e-mail usa retry. Rodar o workflow de novo não dispara o mesmo lembrete outra vez.",
+      },
+      {
+        title: "Mailpit para demonstrar",
+        text: "Na demonstração os e-mails ficam no Mailpit. Para envio real, basta trocar a credencial SMTP no n8n, sem mexer no código do sistema.",
+      },
+    ],
+    results: [
+      "3 automações: confirmação, aviso interno e lembrete de 24 horas",
+      "2 workflows ativos no n8n",
+      "2 e-mails disparados em segundos após a confirmação",
+      "Agendamento preservado quando o n8n está fora do ar",
+      "Lembrete sem duplicidade entre execuções",
+      "Build de produção sem erros",
+    ],
+    stack: [
+      {
+        label: "Frontend & backend",
+        items: ["Next.js 15", "React 19", "JavaScript", "Tailwind CSS v4"],
+      },
+      { label: "Banco", items: ["PostgreSQL no Neon", "Prisma 6"] },
+      {
+        label: "Automação",
+        items: [
+          "n8n",
+          "Webhook",
+          "Schedule Trigger",
+          "HTTP Request",
+          "Send Email",
+          "Loop Over Items",
+        ],
+      },
+      { label: "E-mail", items: ["SMTP", "Mailpit"] },
+      { label: "Ambiente", items: ["Docker", "Node.js 20+"] },
+    ],
+    gallery: [
+      {
+        src: "/images/agenda-flow-agendamento.webp",
+        alt: "Tela de agendamento do AgendaFlow com dia, horário e resumo do atendimento",
+        caption:
+          "Fluxo em três etapas: cuidado, horário e dados, com resumo fixo do atendimento.",
+        aspect: "2.43 / 1",
+      },
+      {
+        src: "/images/agenda-flow-emails.webp",
+        alt: "Mailpit mostrando o e-mail de confirmação enviado pelo n8n",
+        caption:
+          "Os dois e-mails chegam em segundos: confirmação para o cliente e aviso para a equipe.",
+        aspect: "2.43 / 1",
+      },
+      {
+        src: "/images/agenda-flow-admin.webp",
+        alt: "Painel da equipe do AgendaFlow com indicadores e lista de agendamentos",
+        caption:
+          "Painel da equipe com indicadores, filtros e o status de lembrete de cada agendamento.",
+        aspect: "2.43 / 1",
+      },
+      {
+        src: "/images/agenda-flow-lembretes.webp",
+        alt: "Workflow de lembretes no n8n com Schedule Trigger, busca, envio e marcação",
+        caption:
+          "Workflow de lembretes: a cada cinco minutos, busca os pendentes, envia e marca o envio.",
+        aspect: "2.43 / 1",
+      },
+    ],
+    video: {
+      youtubeId: "hlUS2N0JeX4",
+      title: "Demonstração do AgendaFlow",
+      description:
+        "O agendamento, os e-mails capturados no Mailpit e os dois workflows rodando no n8n.",
+    },
+    statusNote:
+      "Trabalho acadêmico de Programação Full Stack, em dupla com Leonardo Rosa. Demonstração local com dados fictícios; nenhum dado de paciente é coletado e os e-mails ficam no Mailpit.",
   },
 ];
 

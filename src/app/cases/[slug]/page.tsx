@@ -99,6 +99,12 @@ export default async function CasePage({ params }: CasePageProps) {
             </div>
 
             <div className="case-hero-actions">
+              {study.video?.youtubeId ? (
+                <a href="#case-video" className="btn btn-small btn-ghost">
+                  Assistir à demonstração
+                  <ArrowRight size={14} className="case-video-arrow" />
+                </a>
+              ) : null}
               {study.links?.length ? (
                 study.links.map((link) => (
                   <a
@@ -135,6 +141,34 @@ export default async function CasePage({ params }: CasePageProps) {
           />
         </div>
       </div>
+
+      {study.video?.youtubeId ? (
+        <section
+          id="case-video"
+          className="container case-video-section"
+          aria-labelledby="case-video-title"
+          tabIndex={-1}
+        >
+          <div className="case-video-head">
+            <span className="case-video-eyebrow">Vídeo</span>
+            <h2 id="case-video-title">{study.video.title}</h2>
+            {study.video.description ? (
+              <p>{study.video.description}</p>
+            ) : null}
+          </div>
+
+          <div className="case-video-frame">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${study.video.youtubeId}`}
+              title={study.video.title}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </section>
+      ) : null}
 
       <div className="container case-layout">
         <aside className="case-sidebar" aria-label="Resumo do case">

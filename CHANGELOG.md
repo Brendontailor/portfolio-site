@@ -10,6 +10,8 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 ## [Não Lançado]
 
 ### Adicionado
+- Case 06 (AgendaFlow): agendamentos com automações no n8n, com player de vídeo, galeria e imagens Open Graph
+- Suporte a vídeo nos cases (`CaseVideo`, seção `#case-video` com embed `youtube-nocookie`)
 - Estrutura inicial da Biblia Universal de IA
 - Skill central `entrevista-orquestradora`
 - 6 Skills locais: planejamento-de-tarefas, analise-de-legado, revisao-de-interface, auditoria-de-seguranca, testes-com-roteiro, revisao-final
