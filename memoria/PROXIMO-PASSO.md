@@ -1,18 +1,26 @@
 ﻿# Próximo Passo - portfolio-site
 
-**Última atualização**: 2026-11-16
+**Última atualização**: 2026-11-16 (noite)
 
 ---
 
 ## Ação Imediata
 
-1. Revisar o diff do case AgendaFlow e do suporte a vídeo.
-2. Fazer commit atômico (`feat:` para o case + vídeo; `chore:` para excludes de build).
-3. Pedir autorização explícita antes de `git push` (nada foi enviado ao remoto).
-4. Após o deploy, conferir `https://brendontailor.vercel.app/cases/agenda-flow` com o player carregando.
+1. Push autorizado pelo autor: enviar os commits (P0 do domínio público + revisão dos cases + currículo alinhado) para `origin/main`.
+2. Conferir o workflow "Validar" (conteúdo, lint, build, segredos) no GitHub e o deploy da Vercel em `https://portfolio-site-brendont.vercel.app`.
+3. Depois do deploy, verificar: 5 cases na home (sem Monky Food), `/cv` com RGSUL Internet e o PDF de 1 página, `/cases/routepilot` com a demo pública.
+4. Atualizar a descrição do vídeo no YouTube (ainda aponta para o domínio antigo).
 
-## Pendências opcionais
+## Pendências que dependem de terceiros
 
-- Publicar a versão vertical 9:16 (`AGENDA-EMAIL-N8N-vertical-9x16.mp4`) como Short e ligar ao case via `verticalYoutubeId` (campo já existe no tipo).
-- Revisar o conteúdo dos cases 01–05 no mesmo nível de detalhe do AgendaFlow.
-- O workflow de CI (`.github/workflows/validar.yml`) roda apenas estrutura/links/segredos; não roda build nem lint.
+- Descrição do vídeo no YouTube (link antigo).
+- Preencher site/local no perfil do GitHub (token `gh` sem escopo `user`).
+
+## Backlog da auditoria que continua aberto
+
+- "Meu papel" e métricas antes/depois em cada case (precisa de informação do autor).
+- Seção de testes (Vitest/Testing Library) e repositório de estudo público.
+- Demo sanitizada de Sah Açaí e PortCont (2º e 3º cases-âncora).
+- Microtipografia: subir os metadados de 7–9 px para um piso de 10–11 px (P1-8).
+- Limpar imagens sem referência em `public/images/` (7 arquivos, incluindo `case-monky-food.webp`).
+- Versão vertical 9:16 do AgendaFlow como Short (`verticalYoutubeId`).

@@ -58,3 +58,43 @@ Portfólio com 6 cases. O case 06 (AgendaFlow) foi adicionado com player de víd
 Validações: `npm run check:content` OK, `npx eslint src` sem erros, `npm run build` OK, `/cv` conferido em 1024 e 390 px sem overflow horizontal.
 
 Pendências: commit/push do P0; atualizar descrição do vídeo no YouTube (link antigo); preencher site/local no perfil do GitHub (token sem escopo `user`).
+
+---
+
+## Continuação 16/11/2026 (tarde) — revisão dos cases
+
+**Fase em andamento:** FASE 3 (PUBLICAÇÃO DE CONTEÚDO) → revisão de layout e integridade de conteúdo.
+
+### O que mudou
+
+- **Grade dos cases refeita**: a grade de 12 colunas tinha duas linhas com metade vazia (buracos) porque um card `wide` (12 colunas) caía depois de um card comum. Agora a sequência fecha sem buraco:
+  - 01 Sah Açaí & Cia (featured, 12 colunas) · 02 RoutePilot + 03 PortCont (6+6) · 04 Dropzone + 05 AgendaFlow (6+6)
+  - `wide` saiu do Dropzone e do AgendaFlow; o `featured` do Sah Açaí foi mantido.
+- **Case Monky Food removido** a pedido do autor (6 → 5 cases). Indexes renumerados (RoutePilot 02, PortCont 03, Dropzone 04, AgendaFlow 05).
+- **RoutePilot agora é prova clicável**: `https://routpilotes.vercel.app` abre publicamente (verificado), então o status passou de "No ar · acesso restrito" para "No ar · demonstração pública".
+- **Conteúdo alinhado ao novo conjunto**: hero com contagem dinâmica (`{cases.length}`), stats "02 produtos próprios", `/cv` sem o Monky ("Cinco projetos publicados"), currículo com **inglês técnico (leitura)** e **disponibilidade para CLT ou PJ em trabalho remoto** (hero, contato e currículo).
+- **Texto do CI/CD corrigido** na seção "Sobre": o workflow real roda conteúdo, lint, type-check, build e varredura de segredos — não havia testes, deploy preview nem semantic-release.
+- **Links públicos do laboratório corrigidos**: os dois itens "Público" apontavam para `src/lib/rate-limit` e `src/app/api`, que não existem no repositório (404). Agora há código real em `src/reference/rate-limit.ts` e `src/reference/api/clientes/route.ts`, e o snippet do card é o conteúdo exato do arquivo.
+- **`npm run check:content` endurecido**: valida que a grade de cases fecha as 12 colunas sem buraco e que links do laboratório para este repositório existam de fato.
+- **PDF do currículo regenerado** (`public/cv/brendon-tailor-cv.pdf`, A4, 2 páginas, ~190 KB). Nota técnica: gerar com `printBackground: true` rasteriza o fundo e leva o PDF a ~10 MB; com `printBackground: false` + `preferCSSPageSize: true` o resultado é ~190 KB.
+- **JSON-LD**: `knowsLanguage` (pt-BR, en) e `alumniOf` (Senac).
+- `zod` adicionado como dependência (usado pela rota de referência).
+
+### Validações executadas
+
+- `npm run check:content` — OK (5 cases, 9 camadas, 4 itens de laboratório; só avisos de imagens sem referência)
+- `npm run lint` — sem erros
+- `npm run build` — sucesso (15 páginas, 5 rotas de case)
+- Playwright (sem screenshots, só geometria e texto): 1440 px → 3 linhas, 0 coluna vazia; 390 px → coluna única, sem overflow horizontal; `/cases/monky-food` → 404 ("Esse caminho não existe"); `/cases/routepilot` → links públicos presentes; `/cv` → 5 projetos, seção Idiomas e Disponibilidade corretas.
+
+### Estado do Git
+
+- Branch `main`, **1 commit à frente do remoto** (P0) + alterações desta sessão ainda **não commitadas**.
+- **Push autorizado** pelo autor no fim da sessão ("termine e faça o push").
+
+### Currículo alinhado ao documento oficial (16/11/2026, noite)
+
+- O autor enviou `Curriculo - Brendon Tailor.pdf` (1 página, 79 KB, gerado com pypdf, links para o LinkedIn e para `portfolio-site-brendont.vercel.app`) como o currículo correto.
+- A página `/cv` foi reescrita para refletir o mesmo conteúdo: nome completo, cargo "Suporte Técnico N1/N2 · Desenvolvimento Full Stack", experiência na **RGSUL Internet** (06/2026 – Atual), Informações/Redes (IXCsoft, The Dude, UNM, fibra, MikroTik, PPPoE/IP, ONUs/ONTs, RX/TX), informática/hardware, formação no **4º semestre** e **Fiberschool**.
+- `public/cv/brendon-tailor-cv.pdf` agora é o PDF oficial do autor (1 página) — o PDF gerado a partir de `/cv` foi substituído para não divergir do documento oficial.
+- A seção "Projetos" (5 cases) fica só na versão web: o PDF oficial é o currículo de 1 página.
