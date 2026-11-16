@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site } from "@/data/site";
-import { ArrowUpRight, GithubIcon, MailIcon } from "./icons";
+import { ArrowUpRight, GithubIcon, LinkedinIcon, MailIcon } from "./icons";
 import { BrandMark } from "./brand-mark";
 
 export function SiteFooter() {
@@ -24,6 +24,14 @@ export function SiteFooter() {
             <GithubIcon size={14} />
             GitHub
             <span className="visually-hidden"> (abre em nova aba)</span>
+          </a>
+          <a href={site.linkedin} target="_blank" rel="noreferrer">
+            <LinkedinIcon size={14} />
+            LinkedIn
+            <span className="visually-hidden"> (abre em nova aba)</span>
+          </a>
+          <a href={site.cv} download>
+            Currículo
           </a>
           <Link href="/#cases">
             Cases

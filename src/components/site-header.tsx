@@ -203,6 +203,15 @@ export function SiteHeader() {
               <ArrowUpRight size={14} />
               <span className="visually-hidden"> (abre em nova aba)</span>
             </a>
+            <a href={site.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn
+              <ArrowUpRight size={14} />
+              <span className="visually-hidden"> (abre em nova aba)</span>
+            </a>
+            <a href={site.cv} download>
+              Currículo
+              <ArrowUpRight size={14} />
+            </a>
             <span>{site.location}</span>
           </div>
         </div>

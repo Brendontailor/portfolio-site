@@ -549,8 +549,8 @@ export const cases: CaseStudy[] = [
     ],
     links: [
       {
-        label: "Repositório público",
-        href: "https://github.com/Brendontailor/dropzone",
+        label: "Código do projeto (colaboração)",
+        href: "https://github.com/leonardorosler/dropzone-backend",
         kind: "repo",
       },
     ],

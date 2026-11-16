@@ -6,10 +6,11 @@ export const site = {
   email: "brendontailor040@gmail.com",
   phone: "+55 53 99128-7869",
   github: "https://github.com/Brendontailor",
+  linkedin: "https://br.linkedin.com/in/brendon-tailor-404144284",
   location: "Brasil · remoto",
   availability: "Disponível para novos projetos",
-  url: "https://brendontailor.vercel.app",
-  portfolioUrl: "https://portfolio-site-snowy-rho-21.vercel.app",
+  url: "https://portfolio-site-brendont.vercel.app",
+  cv: "/cv/brendon-tailor-cv.pdf",
   description:
     "Portfólio de Brendon Tailor, desenvolvedor full-stack. SaaS, sistemas sob medida e produtos digitais para operações reais.",
   nav: [
@@ -17,6 +18,7 @@ export const site = {
     { label: "Conhecimento", href: "/#conhecimento" },
     { label: "Laboratório", href: "/#laboratorio" },
     { label: "Sobre", href: "/#sobre" },
+    { label: "Currículo", href: "/cv" },
   ],
   stats: [
     { value: "03", label: "produtos próprios" },

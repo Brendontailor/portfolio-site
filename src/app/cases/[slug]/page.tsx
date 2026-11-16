@@ -193,9 +193,9 @@ export default async function CasePage({ params }: CasePageProps) {
             <strong>{study.stack[0]?.items.join(" · ")}</strong>
           </div>
 
-          {study.type === "Produto próprio" && site.portfolioUrl ? (
+          {study.type === "Produto próprio" ? (
             <a
-              href={site.portfolioUrl}
+              href={site.url}
               target="_blank"
               rel="noreferrer"
               className="case-sidebar-creator"

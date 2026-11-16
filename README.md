@@ -68,7 +68,7 @@ O case Dropzone é apresentado com crédito a Leonardo Rosler e sem exposição 
 
 ## Deploy
 
-O projeto foi preparado para a Vercel. O domínio de referência em `src/data/site.ts` é `https://brendontailor.vercel.app`.
+O projeto foi preparado para a Vercel. O domínio de referência em `src/data/site.ts` é `https://portfolio-site-brendont.vercel.app`.
 
 Defina `NEXT_PUBLIC_SITE_URL` no ambiente de produção para que `metadataBase`, Open Graph e sitemap usem a URL final.
 

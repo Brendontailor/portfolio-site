@@ -17,7 +17,7 @@ export default function Home() {
     description: site.description,
     url: site.url,
     email: `mailto:${site.email}`,
-    sameAs: [site.github],
+    sameAs: [site.github, site.linkedin],
     worksFor: {
       "@type": "Organization",
       name: site.company,

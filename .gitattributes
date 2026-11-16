@@ -1,0 +1,8 @@
+# Exemplos arquiteturais são código de referência, não contam como linguagem do site.
+exemplos/** linguist-vendored
+
+# Documentação e memória não definem a linguagem do repositório.
+docs/** linguist-documentation
+memoria/** linguist-documentation
+templates/** linguist-documentation
+checklists/** linguist-documentation

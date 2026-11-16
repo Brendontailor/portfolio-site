@@ -1,5 +1,5 @@
 import { site } from "@/data/site";
-import { ArrowUpRight, GithubIcon } from "@/components/icons";
+import { ArrowUpRight, GithubIcon, LinkedinIcon } from "@/components/icons";
 import { CopyEmail } from "@/components/copy-email";
 import { Reveal } from "@/components/reveal";
 
@@ -32,6 +32,20 @@ export function ContactSection() {
             <a href={`mailto:${site.email}`} className="btn btn-primary">
               Enviar um e-mail
               <ArrowUpRight size={16} />
+            </a>
+            <a href={site.cv} download className="btn btn-ghost">
+              Baixar currículo
+              <ArrowUpRight size={16} />
+            </a>
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-ghost"
+            >
+              <LinkedinIcon size={16} />
+              LinkedIn
+              <span className="visually-hidden"> (abre em nova aba)</span>
             </a>
             <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="btn btn-ghost">
               <span className="visually-hidden">Ligar </span>

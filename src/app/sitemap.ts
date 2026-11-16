@@ -3,7 +3,7 @@ import { cases } from "@/data/cases";
 import { site } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-10-24");
+  const lastModified = new Date("2026-11-16");
 
   return [
     {
@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 1,
+    },
+    {
+      url: `${site.url}/cv`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
     ...cases.map((study) => ({
       url: `${site.url}/cases/${study.slug}`,
