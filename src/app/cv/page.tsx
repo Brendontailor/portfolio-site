@@ -14,27 +14,6 @@ export const metadata: Metadata = {
 
 const skills = [
   {
-    label: "Operação e Suporte",
-    items: [
-      "IXCsoft",
-      "The Dude",
-      "UNM",
-      "Controle de agendas, rotas e ordens de serviço",
-      "Diagnóstico de falhas de conectividade",
-    ],
-  },
-  {
-    label: "Redes e Telecom",
-    items: [
-      "Fibra óptica",
-      "Redes",
-      "MikroTik",
-      "PPPoE/IP",
-      "ONUs/ONTs",
-      "Análise de potência RX/TX",
-    ],
-  },
-  {
     label: "Full Stack",
     items: [
       "JavaScript",
@@ -61,6 +40,27 @@ const skills = [
       "Vercel",
       "n8n",
       "Vitest",
+    ],
+  },
+  {
+    label: "Operação e Suporte",
+    items: [
+      "IXCsoft",
+      "The Dude",
+      "UNM",
+      "Controle de agendas, rotas e ordens de serviço",
+      "Diagnóstico de falhas de conectividade",
+    ],
+  },
+  {
+    label: "Redes e Telecom",
+    items: [
+      "Fibra óptica",
+      "Redes",
+      "MikroTik",
+      "PPPoE/IP",
+      "ONUs/ONTs",
+      "Análise de potência RX/TX",
     ],
   },
   {
@@ -190,8 +190,7 @@ export default function CvPage() {
           <div>
             <h1>Brendon Tailor dos Santos Cavalheiro</h1>
             <p className="cv-role">
-              Suporte Técnico N1/N2 · Desenvolvimento Full Stack (React, Node.js,
-              PostgreSQL)
+              Desenvolvedor Full Stack · React, Next.js, Node.js, PostgreSQL
             </p>
           </div>
           <ul className="cv-contact">
@@ -213,17 +212,16 @@ export default function CvPage() {
         <section className="cv-section">
           <h2>Perfil</h2>
           <p>
-            Profissional de suporte técnico N1/N2 em telecomunicações, com
-            experiência em atendimento a clientes, gestão de agendas, rotas e
-            ordens de serviço, abertura de chamados e monitoramento de redes.
-            Ex-militar com sete anos de experiência administrativa e controle de
-            informações. Estudante de Análise e Desenvolvimento de Sistemas, com
-            projetos próprios em desenvolvimento Full Stack — cinco sistemas
-            publicados no portfólio, incluindo um sistema de pedidos em
+            Desenvolvedor Full Stack em formação, graduando em Análise e
+            Desenvolvimento de Sistemas no Senac (4º semestre), com cinco
+            sistemas publicados no portfólio — incluindo um sistema de pedidos em
             operação para um cliente real e uma PWA de planejamento de visitas no
-            ar. Certificado em GitHub Actions, GitHub Codespaces e GitHub Copilot
-            pela Enap (Escola Virtual Gov). Leio documentação e código em inglês;
-            estou aberto a trabalho remoto como CLT ou PJ.
+            ar. Estudo programação na graduação e construo aplicações completas,
+            do modelo de dados à interface, com React, Next.js, Node.js,
+            TypeScript, PostgreSQL e Prisma. Trago sete anos de experiência
+            administrativa no Exército e atuação em suporte técnico N1/N2, com
+            disciplina, atendimento ao cliente e resolução de problemas.
+            Disponível para trabalho remoto (CLT ou PJ) e estágio.
           </p>
         </section>
 
@@ -308,7 +306,18 @@ export default function CvPage() {
 
             <section className="cv-section">
               <h2>Disponibilidade</h2>
-              <p>Imediata · trabalho remoto · CLT ou PJ · CNH AB.</p>
+              <p>
+                Imediata · remoto ou presencial · disponível para viagens · CLT,
+                PJ ou estágio · CNH AB.
+              </p>
+            </section>
+
+            <section className="cv-section">
+              <h2>Referências</h2>
+              <p>
+                9º Batalhão de Infantaria Motorizado (Exército Brasileiro) ·
+                Seção Administrativa · (53) 3026-5200.
+              </p>
             </section>
           </div>
         </div>
