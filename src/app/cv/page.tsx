@@ -56,6 +56,8 @@ const skills = [
       "Docker",
       "Prisma",
       "GitHub Actions",
+      "GitHub Codespaces",
+      "GitHub Copilot",
       "Vercel",
       "n8n",
       "Vitest",
@@ -151,6 +153,24 @@ const courses = [
   },
 ];
 
+const certificates = [
+  {
+    role: "GitHub Copilot",
+    company: "Escola Virtual Gov · Enap",
+    period: "2026 · 8h · nota 93,33",
+  },
+  {
+    role: "GitHub Actions",
+    company: "Escola Virtual Gov · Enap",
+    period: "2026 · 4h · nota 100",
+  },
+  {
+    role: "GitHub Codespaces",
+    company: "Escola Virtual Gov · Enap",
+    period: "2026 · 3h · nota 100",
+  },
+];
+
 export default function CvPage() {
   return (
     <main id="main" className="cv-page" tabIndex={-1}>
@@ -201,8 +221,9 @@ export default function CvPage() {
             projetos próprios em desenvolvimento Full Stack — cinco sistemas
             publicados no portfólio, incluindo um sistema de pedidos em
             operação para um cliente real e uma PWA de planejamento de visitas no
-            ar. Leio documentação e código em inglês; estou aberto a trabalho
-            remoto como CLT ou PJ.
+            ar. Certificado em GitHub Actions, GitHub Codespaces e GitHub Copilot
+            pela Enap (Escola Virtual Gov). Leio documentação e código em inglês;
+            estou aberto a trabalho remoto como CLT ou PJ.
           </p>
         </section>
 
@@ -263,6 +284,18 @@ export default function CvPage() {
                   <h3>{course.role}</h3>
                   <p className="cv-job-meta">
                     {course.company} · {course.period}
+                  </p>
+                </div>
+              ))}
+            </section>
+
+            <section className="cv-section">
+              <h2>Cursos e certificações</h2>
+              {certificates.map((certificate) => (
+                <div key={certificate.role} className="cv-job">
+                  <h3>{certificate.role}</h3>
+                  <p className="cv-job-meta">
+                    {certificate.company} · {certificate.period}
                   </p>
                 </div>
               ))}
